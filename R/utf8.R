@@ -89,7 +89,7 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
 }
 
 #' @export
-`[<-.utf8` <- function(x, i, j, value, ...) {
+`[<-.utf8` <- function(x, i, j, ..., value) {
   value <- as.utf8(value)
   structure(NextMethod(), class = "utf8")
 }
