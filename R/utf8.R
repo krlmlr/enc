@@ -1,3 +1,5 @@
+methods::setOldClass(c("utf8", "character"))
+
 #' A simple class for storing UTF-8 strings
 #'
 #' The values are stored as a \code{\link{character}} vector.
@@ -27,7 +29,6 @@ is.utf8 <- function(x) inherits(x, "utf8")
 # Coercion in -------------------------------------------------------------
 
 #' @rdname utf8
-#' @param x An object.
 #' @param ... Arguments passed on to further methods.
 #' @export
 as.utf8 <- function(x, ...) UseMethod("as.utf8", x)
@@ -88,20 +89,22 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
 }
 
 #' @export
-`[<-.utf8` <- function(x, i, j, value, ...) {
+`[<-.utf8` <- function(x, i, j, ..., value) {
   value <- as.utf8(value)
   structure(NextMethod(), class = "utf8")
 }
 
+#' @rdname utf8
+#' @param value Ignored, values other than \code{"UTF-8"} raise a warning.
 #' @export
-`Encoding<-` <- function(x, value) UseMethod("Encoding<-", x)
-
-#' @export
-`Encoding<-.utf8` <- function(x, value) {
-  if (value != "UTF-8")
-    warning("cannot change encoding of utf8", call. = FALSE)
-  x
-}
+setMethod(
+  "Encoding<-", "utf8",
+  function(x, value) {
+    if (value != "UTF-8")
+      warning("cannot change encoding of utf8", call. = FALSE)
+    x
+  }
+)
 
 
 # Output ------------------------------------------------------------------
