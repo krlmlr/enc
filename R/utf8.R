@@ -29,7 +29,6 @@ is.utf8 <- function(x) inherits(x, "utf8")
 # Coercion in -------------------------------------------------------------
 
 #' @rdname utf8
-#' @param x An object.
 #' @param ... Arguments passed on to further methods.
 #' @export
 as.utf8 <- function(x, ...) UseMethod("as.utf8", x)
@@ -96,6 +95,7 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
 }
 
 #' @rdname utf8
+#' @param value Ignored, values other than \code{"UTF-8"} raise a warning.
 #' @export
 setMethod(
   "Encoding<-", "utf8",

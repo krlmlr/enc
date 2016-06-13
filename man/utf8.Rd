@@ -55,7 +55,7 @@ as.utf8(x, ...)
 
 \item{nm}{Name of column in new data frame}
 
-\item{x}{An object.}
+\item{value}{Ignored, values other than \code{"UTF-8"} raise a warning.}
 }
 \description{
 The values are stored as a \code{\link{character}} vector.
