@@ -73,18 +73,23 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
   utf8(NextMethod())
 }
 
+#' @export
+`[.utf8` <- function(x, ...) {
+  utf8(NextMethod())
+}
+
 
 # Updating ----------------------------------------------------------------
 
 #' @export
 `[[<-.utf8` <- function(x, i, value) {
-  value <- enc2utf8(value)
+  value <- as.utf8(value)
   structure(NextMethod(), class = "utf8")
 }
 
 #' @export
 `[<-.utf8` <- function(x, i, j, value, ...) {
-  value <- enc2utf8(value)
+  value <- as.utf8(value)
   structure(NextMethod(), class = "utf8")
 }
 
@@ -94,12 +99,12 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
 #' @rdname utf8
 #' @export
 format.utf8 <- function(x, ...) {
-  format(as.character(x))
+  format(as.character(x), ...)
 }
 
 #' @rdname utf8
 #' @export
 print.utf8 <- function(x, ...) {
-  cat(format(x), sep = "\n")
+  print(as.character(x), ...)
   invisible(x)
 }
