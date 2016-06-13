@@ -1,3 +1,5 @@
+methods::setOldClass(c("utf8", "character"))
+
 #' A simple class for storing UTF-8 strings
 #'
 #' The values are stored as a \code{\link{character}} vector.
@@ -94,14 +96,14 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
 }
 
 #' @export
-`Encoding<-` <- function(x, value) UseMethod("Encoding<-", x)
-
-#' @export
-`Encoding<-.utf8` <- function(x, value) {
-  if (value != "UTF-8")
-    warning("cannot change encoding of utf8", call. = FALSE)
-  x
-}
+setMethod(
+  "Encoding<-", "utf8",
+  function(x, value) {
+    if (value != "UTF-8")
+      warning("cannot change encoding of utf8", call. = FALSE)
+    x
+  }
+)
 
 
 # Output ------------------------------------------------------------------
