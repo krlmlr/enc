@@ -11,3 +11,10 @@ test_that("coercion out", {
   expect_identical(as.character(utf8("ä")), "ä")
   expect_identical(as.utf8(utf8("ä")), utf8("ä"))
 })
+
+test_that("type check", {
+  expect_true(is.utf8(utf8("a")))
+  expect_true(is.utf8(utf8("ä")))
+  expect_false(is.utf8("a"))
+  expect_false(is.utf8("ä"))
+})
