@@ -1,3 +1,8 @@
+# utf8 0.0-2 (2016-06-13)
+
+- Updating the encoding is a no-op for `utf8` objects.
+
+
 # utf8 0.0-1 (2016-06-13)
 
 - Initial release
