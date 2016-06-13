@@ -13,11 +13,11 @@ utf8(c("a", "ä"))
 as.utf8(1)
 #> [1] "1"
 
-data.frame(hours = letters[1:3], utf8 = utf8(letters[1:3]))
-#>   hours utf8
-#> 1     a    a
-#> 2     b    b
-#> 3     c    c
+data.frame(abc = letters[1:3], utf8 = utf8(letters[1:3]))
+#>   abc utf8
+#> 1   a    a
+#> 2   b    b
+#> 3   c    c
 ```
 
 Install the package from GitHub:
