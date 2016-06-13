@@ -93,6 +93,16 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
   structure(NextMethod(), class = "utf8")
 }
 
+#' @export
+`Encoding<-` <- function(x, value) UseMethod("Encoding<-", x)
+
+#' @export
+`Encoding<-.utf8` <- function(x, value) {
+  if (value != "UTF-8")
+    warning("cannot change encoding of utf8", call. = FALSE)
+  x
+}
+
 
 # Output ------------------------------------------------------------------
 
