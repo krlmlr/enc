@@ -8,11 +8,6 @@ The values are stored as a character vector. Special care is taken that updates 
 
 ``` r
 library(utf8)
-#> 
-#> Attaching package: 'utf8'
-#> The following object is masked from 'package:base':
-#> 
-#>     Encoding<-
 utf8(c("a", "ä"))
 #> [1] "a" "ä"
 as.utf8(1)
