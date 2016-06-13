@@ -95,6 +95,7 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
   structure(NextMethod(), class = "utf8")
 }
 
+#' @rdname utf8
 #' @export
 setMethod(
   "Encoding<-", "utf8",
