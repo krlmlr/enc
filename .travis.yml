@@ -11,7 +11,7 @@ r:
 r_packages: covr
 
 after_success:
-  - Rscript -e 'covr::codecov()'
+  - R -e 'covr::codecov()'
 
 notifications:
   email:

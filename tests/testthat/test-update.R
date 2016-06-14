@@ -27,3 +27,7 @@ test_that("Update keeps encoding", {
   x2[[2]] <- iconv("ä", to = "utf8")
   expect_identical(x, x2)
 })
+
+test_that("Concatenation keeps encoding", {
+  expect_is(c(utf8("ä"), "a"), "utf8")
+})

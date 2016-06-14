@@ -1,3 +1,8 @@
+# utf8 0.0-4 (2016-06-14)
+
+- Implement `c.utf8()`.
+
+
 # utf8 0.0-3 (2016-06-13)
 
 - Pass `R CMD check`.
