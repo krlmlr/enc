@@ -106,6 +106,11 @@ setMethod(
   }
 )
 
+#' @export
+c.utf8 <- function(x, ..., recursive = FALSE) {
+  as.utf8(NextMethod())
+}
+
 
 # Output ------------------------------------------------------------------
 
