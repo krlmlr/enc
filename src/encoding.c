@@ -20,15 +20,14 @@
 
 SEXP encoding(SEXP x)
 {
-  SEXP ans;
-  R_xlen_t i, n;
-  char *tmp;
-
   if (TYPEOF(x) != STRSXP)
     error("a character vector argument expected");
-  n = XLENGTH(x);
+
+  R_xlen_t n = XLENGTH(x);
+  SEXP ans;
   PROTECT(ans = allocVector(STRSXP, n));
-  for (i = 0; i < n; i++) {
+  for (R_xlen_t i = 0; i < n; i++) {
+    char *tmp;
     if(IS_BYTES(STRING_ELT(x, i))) tmp = "bytes";
     else if(IS_LATIN1(STRING_ELT(x, i))) tmp = "latin1";
     else if(IS_UTF8(STRING_ELT(x, i))) tmp = "UTF-8";
