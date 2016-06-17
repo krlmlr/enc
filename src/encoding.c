@@ -28,10 +28,11 @@ SEXP encoding(SEXP x)
   PROTECT(ans = allocVector(STRSXP, n));
   for (R_xlen_t i = 0; i < n; i++) {
     char *tmp;
-    if(IS_BYTES(STRING_ELT(x, i))) tmp = "bytes";
-    else if(IS_LATIN1(STRING_ELT(x, i))) tmp = "latin1";
-    else if(IS_UTF8(STRING_ELT(x, i))) tmp = "UTF-8";
-    else if(IS_ASCII(STRING_ELT(x, i))) tmp = "ASCII";
+    SEXP xi = STRING_ELT(x, i);
+    if(IS_BYTES(xi)) tmp = "bytes";
+    else if(IS_LATIN1(xi)) tmp = "latin1";
+    else if(IS_UTF8(xi)) tmp = "UTF-8";
+    else if(IS_ASCII(xi)) tmp = "ASCII";
     else tmp = "unknown";
     SET_STRING_ELT(ans, i, mkChar(tmp));
   }
