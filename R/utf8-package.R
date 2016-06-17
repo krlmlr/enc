@@ -3,5 +3,5 @@
 
 #' @export
 Encoding2 <- function(x) {
-  .Call(C_encoding, as.character(x))
+  .Call(C_encoding, x)
 }
