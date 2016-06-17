@@ -39,3 +39,24 @@ SEXP encoding(SEXP x)
   UNPROTECT(1);
   return ans;
 }
+
+SEXP all_utf8(SEXP x)
+{
+  if (TYPEOF(x) != STRSXP)
+    error("a character vector argument expected");
+
+  R_xlen_t n = XLENGTH(x);
+  SEXP ans;
+  PROTECT(ans = allocVector(LGLSXP, 1));
+  LOGICAL(ans)[0] = TRUE;
+  for (R_xlen_t i = 0; i < n; i++) {
+    char *tmp;
+    SEXP xi = STRING_ELT(x, i);
+    if(!IS_UTF8(xi) && !IS_ASCII(xi)) {
+      LOGICAL(ans)[0] = FALSE;
+      break;
+    }
+  }
+  UNPROTECT(1);
+  return ans;
+}
