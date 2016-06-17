@@ -51,10 +51,11 @@ SEXP all_utf8(SEXP x)
   LOGICAL(ans)[0] = TRUE;
   for (R_xlen_t i = 0; i < n; i++) {
     SEXP xi = STRING_ELT(x, i);
-    if(!IS_UTF8(xi) && !IS_ASCII(xi)) {
-      LOGICAL(ans)[0] = FALSE;
-      break;
-    }
+    if(IS_UTF8(xi) || IS_ASCII(xi))
+      continue;
+
+    LOGICAL(ans)[0] = FALSE;
+    break;
   }
   UNPROTECT(1);
   return ans;
