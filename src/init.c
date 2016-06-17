@@ -32,6 +32,7 @@
 
 static const R_CallMethodDef CallEntries[] = {
   CALLDEF(encoding, 1),
+  CALLDEF(all_utf8, 1),
 
   {NULL, NULL, 0}
 };
