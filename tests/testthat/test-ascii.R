@@ -5,7 +5,8 @@ test_that("ASCII encoding detected works", {
     Encoding2(c(
       "a",
       iconv("ä", to = "UTF-8"),
-      iconv("ä", to = "latin1")
+      iconv("ä", to = "latin1"),
+      as_unknown("ä")
     )),
-    c("ASCII", "UTF-8", "latin1"))
+    c("ASCII", "UTF-8", "latin1", "unknown"))
 })
