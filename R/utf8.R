@@ -3,8 +3,10 @@ methods::setOldClass(c("utf8", "character"))
 #' A simple class for storing UTF-8 strings
 #'
 #' The values are stored as a \code{\link{character}} vector.
-#' Special care is taken to make sure that all elements are UTF-8 or ASCII
-#' strings.
+#' On construction, the \code{\link[base]{enc2utf8}} function is called on the
+#' input.  Subsetting and concatenation operations on an object of this class
+#' return an object of this class again.
+#' Calls to \code{\link[base]{Encoding<-}} are not intercepted.
 #'
 #' @name utf8
 #' @examples
@@ -93,18 +95,6 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
   value <- as.utf8(value)
   structure(NextMethod(), class = "utf8")
 }
-
-#' @rdname utf8
-#' @param value Ignored, values other than \code{"UTF-8"} raise a warning.
-#' @export
-setMethod(
-  "Encoding<-", "utf8",
-  function(x, value) {
-    if (value != "UTF-8")
-      warning("cannot change encoding of utf8", call. = FALSE)
-    x
-  }
-)
 
 #' @export
 c.utf8 <- function(x, ..., recursive = FALSE) {

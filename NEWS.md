@@ -1,3 +1,10 @@
+## utf8 0.0-5 (2016-08-09)
+
+- New `encoding()`, returns `"ASCII"` for pure ASCII strings and behaves identical to `base::Encoding()` otherwise.
+- New `all_utf8()`, returns an atomic logical that indicates if all elements of a character vector are UTF-8 encoded; this includes pure ASCII stringsi (#1).
+- Remove `Encoding<-` override, with documentation (#7).
+
+
 # utf8 0.0-4 (2016-06-14)
 
 - Implement `c.utf8()`.
