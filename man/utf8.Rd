@@ -53,8 +53,10 @@ as.utf8(x, ...)
 }
 \description{
 The values are stored as a \code{\link{character}} vector.
-Special care is taken to make sure that all elements are UTF-8 or ASCII
-strings.
+On construction, the \code{\link[base]{enc2utf8}} function is called on the
+input.  Subsetting and concatenation operations on an object of this class
+return an object of this class again.
+Calls to \code{\link[base]{Encoding<-}} are not intercepted.
 }
 \examples{
 utf8(letters)
