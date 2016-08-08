@@ -2,7 +2,7 @@
 "_PACKAGE"
 
 #' @export
-Encoding2 <- function(x) {
+encoding <- function(x) {
   .Call(C_encoding, x)
 }
 
