@@ -4,6 +4,7 @@
 \alias{as.character.utf8}
 \alias{as.data.frame.utf8}
 \alias{as.utf8}
+\alias{as.utf8.NULL}
 \alias{as.utf8.character}
 \alias{as.utf8.default}
 \alias{as.utf8.utf8}
@@ -13,13 +14,15 @@
 \alias{utf8}
 \title{A simple class for storing UTF-8 strings}
 \usage{
-utf8(x = NULL)
+utf8(x = character())
 
 is.utf8(x)
 
 as.utf8(x, ...)
 
 \method{as.utf8}{default}(x, ...)
+
+\method{as.utf8}{NULL}(x, ...)
 
 \method{as.utf8}{character}(x, ...)
 

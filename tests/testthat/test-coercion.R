@@ -18,3 +18,7 @@ test_that("type check", {
   expect_false(is.utf8("a"))
   expect_false(is.utf8("ä"))
 })
+
+test_that("NULL", {
+  expect_null(as.utf8(NULL))
+})
