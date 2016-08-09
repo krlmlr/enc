@@ -17,10 +17,6 @@ a <- utf8("ä")
 a[2] <- "ö"
 class(a)
 #> [1] "utf8"
-Encoding(a) <- "latin1"
-#> Warning: cannot change encoding of utf8
-Encoding(a)
-#> [1] "UTF-8" "UTF-8"
 
 data.frame(abc = letters[1:3], utf8 = utf8(letters[1:3]))
 #>   abc utf8
