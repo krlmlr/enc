@@ -1,18 +1,31 @@
 context("to-native")
 
+test_that("character vector", {
+  expect_identical(to_native(to_utf8(letters)), to_native(letters))
+  expect_identical(to_native(to_alien(to_utf8(letters))), to_native(letters))
+  expect_identical(to_native(to_utf8(to_alien(letters))), to_native(letters))
+  expect_identical(to_native(to_alien(letters)), to_native(letters))
+})
+
+test_that("iris", {
+  expect_identical(to_native(to_utf8(iris)), to_native(iris))
+  expect_identical(to_native(to_alien(to_utf8(iris))), to_native(iris))
+  expect_identical(to_native(to_utf8(to_alien(iris))), to_native(iris))
+  expect_identical(to_native(to_alien(iris)), to_native(iris))
+})
+
+test_that("mtcars", {
+  expect_identical(to_native(to_utf8(mtcars)), to_native(mtcars))
+  expect_identical(to_native(to_alien(to_utf8(mtcars))), to_native(mtcars))
+  expect_identical(to_native(to_utf8(to_alien(mtcars))), to_native(mtcars))
+  expect_identical(to_native(to_alien(mtcars)), to_native(mtcars))
+})
+
 test_that("umlauts", {
-  data <- data.frame(a = I(c("o", "u")))
-  colnames_utf8 <- "\u00e4"
-  colnames_native <- enc2native(colnames_utf8)
-  value_utf8 <- c("\u00f6", "\u00fc")
-  value_native <- enc2native(value_utf8)
+  umlauts <- c("\u00e4", "\u00f6", "\u00fc")
 
-  colnames(data) <- colnames_utf8
-  data[[1]] <- value_utf8
-
-  data_native <- to_native(data)
-  expect_equal(Encoding(colnames(data_native)), Encoding(colnames_native))
-  expect_equal(Encoding(data_native[[1]]), Encoding(value_native))
-  attribute_names <- names(attributes(data_native))
-  expect_equal(Encoding(attribute_names), Encoding(enc2native(attribute_names)))
+  expect_identical(to_native(to_utf8(umlauts)), to_native(umlauts))
+  expect_identical(to_native(to_alien(to_utf8(umlauts))), to_native(umlauts))
+  expect_identical(to_native(to_utf8(to_alien(umlauts))), to_native(umlauts))
+  expect_identical(to_native(to_alien(umlauts)), to_native(umlauts))
 })

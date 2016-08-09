@@ -9,7 +9,8 @@
 #'   \item{\code{to_utf8}}{converts to UTF-8, using the \code{\link{utf8}} class
 #'     where possible. Implemented as \code{to_encoding(x, as.utf8)}}
 #'   \item{\code{to_native}}{converts to the native encoding.
-#'     Implemented as \code{to_encoding(x, enc2native)}}
+#'     Implemented as \code{to_encoding(x, enc2native)} on Windows
+#'     and as \code{to_encoding(x, as.utf8)} on Linux and OS X}
 #'   \item{\code{to_latin1}}{converts to the latin-1 encoding}
 #'   \item{\code{to_alien}}{converts to the "other" encoding, i.e.,
 #'     UTF-8 on Windows and latin-1 on Linux and OS X.}
@@ -27,28 +28,34 @@
 #' @export
 to_utf8 <- function(x, ...) to_encoding(x, ..., converter = as.utf8)
 
+iconv_to_native <- if (.Platform$OS.type == "windows") {
+  function(x, ...) enc2native(x)
+} else {
+  function(x, ...) as.utf8(x)
+}
+
 #' @rdname to_encoding
 #' @export
-to_native <- function(x, ...) to_encoding(x, ..., converter = enc2native)
+to_native <- function(x, ...) to_encoding(x, ..., converter = iconv_to_native)
 
-enc2latin1 <- function(x) {
+iconv_to_latin1 <- function(x) {
   unclass(vapply(x, function(xx) iconv(xx, from = encoding(xx), to = "latin1"),
                  character(1L), USE.NAMES = FALSE))
 }
 
 #' @rdname to_encoding
 #' @export
-to_latin1 <- function(x, ...) to_encoding(x, ..., converter = enc2latin1)
+to_latin1 <- function(x, ...) to_encoding(x, ..., converter = iconv_to_latin1)
 
-enc2alien <-
-  if (.Platform$OS.type == "windows")
-    function(x, ...) as.utf8(x)
-  else
-    function(x, ...) enc2latin1(x)
+iconv_to_alien <- if (.Platform$OS.type == "windows") {
+  function(x, ...) as.utf8(x)
+} else {
+  function(x, ...) iconv_to_latin1(x)
+}
 
 #' @rdname to_encoding
 #' @export
-to_alien <- function(x, ...) to_encoding(x, ..., converter = enc2alien)
+to_alien <- function(x, ...) to_encoding(x, ..., converter = iconv_to_alien)
 
 to_encoding <- function(x, ...) UseMethod("to_encoding", x)
 
