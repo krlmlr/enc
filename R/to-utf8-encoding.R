@@ -40,7 +40,7 @@ enc2latin1 <- function(x) {
 #' @export
 to_latin1 <- function(x, ...) to_encoding(x, ..., converter = enc2latin1)
 
-enc2alien <- if (.Platform$OS.type == "windows") enc2utf8 else enc2latin1
+enc2alien <- if (.Platform$OS.type == "windows") as.utf8 else enc2latin1
 
 #' @rdname to_encoding
 #' @export
