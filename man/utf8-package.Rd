@@ -2,8 +2,6 @@
 % Please edit documentation in R/utf8-package.R
 \docType{package}
 \name{utf8-package}
-\alias{utf8}
-\alias{utf8-package}
 \title{A simple class for storing UTF-8 strings}
 \description{
 Implements an S3 class for storing UTF-8 strings, based on regular characters.

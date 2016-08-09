@@ -1,3 +1,9 @@
+## utf8 0.0-6 (2016-08-09)
+
+- Fix `R CMD check` errors.
+- New `to_utf8()` performs deep conversion to UTF-8, including names and other attributes (#2, #5).
+
+
 ## utf8 0.0-5 (2016-08-09)
 
 - New `encoding()`, returns `"ASCII"` for pure ASCII strings and behaves identical to `base::Encoding()` otherwise.
