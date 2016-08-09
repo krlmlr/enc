@@ -8,6 +8,10 @@ test_that("constructor takes only one argument", {
   expect_error(utf8("a", "b"))
 })
 
+test_that("constructor coerces to character", {
+  expect_identical(utf8(1:3), utf8(as.character(1:3)))
+})
+
 test_that("can construct empty utf8", {
   expect_identical(utf8(), as.utf8(character()))
 })

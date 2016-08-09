@@ -20,7 +20,7 @@ NULL
 #' @rdname utf8
 #' @param x A vector
 #' @export
-utf8 <- function(x = NULL) {
+utf8 <- function(x = character()) {
   as.utf8(x)
 }
 
@@ -39,6 +39,12 @@ as.utf8 <- function(x, ...) UseMethod("as.utf8", x)
 #' @export
 as.utf8.default <- function(x, ...) {
   as.utf8(as.character(x))
+}
+
+#' @rdname utf8
+#' @export
+as.utf8.NULL <- function(x, ...) {
+  NULL
 }
 
 #' @rdname utf8
