@@ -6,8 +6,17 @@
 \usage{
 to_utf8(x, ...)
 }
+\arguments{
+\item{x}{A character vector.}
+
+\item{...}{passed on to methods}
+}
 \description{
 Converts all characters directly or indirectly contained in an object to
-UTF-8.
+UTF-8, using the \code{\link{utf8}} class where possible.
+}
+\examples{
+to_utf8(letters)
+to_utf8(iris)
 }
 
