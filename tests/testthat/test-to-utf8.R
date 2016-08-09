@@ -18,3 +18,14 @@ test_that("mtcars", {
   expect_true(all_utf8(names(attributes(mtcars_utf8))))
   expect_true(all_utf8(rownames(mtcars_utf8)))
 })
+
+test_that("umlauts", {
+  data <- data.frame(a = I(c("o", "u")))
+  colnames(data) <- enc2native("\\u00e4")
+  data[[1]] <- enc2native(c("\\u00f6", "\\u00fc"))
+
+  data_utf8 <- to_utf8(data)
+  expect_is(colnames(data_utf8), "utf8")
+  expect_true(all_utf8(names(attributes(data_utf8))))
+  expect_true(all_utf8(rownames(data_utf8)))
+})
