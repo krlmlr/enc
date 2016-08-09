@@ -107,6 +107,12 @@ c.utf8 <- function(x, ..., recursive = FALSE) {
   as.utf8(NextMethod())
 }
 
+#' @export
+`names<-.utf8` <- function(x, value) {
+  attr(x, "names") <- utf8(value)
+  x
+}
+
 
 # Output ------------------------------------------------------------------
 
