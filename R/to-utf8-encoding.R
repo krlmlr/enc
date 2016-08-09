@@ -38,7 +38,7 @@ to_encoding.data.frame <- function(x, ...) {
 #'   and returns a (possibly classed) character with the desired encoding
 #' @export
 to_encoding.character <- function(x, ..., converter) {
-  x <- converter(x, ...)
+  x <- converter(x)
   attrib_to_encoding(x, ..., converter = converter)
 }
 
