@@ -3,12 +3,15 @@
 \name{to_encoding}
 \alias{to_encoding}
 \alias{to_encoding.character}
+\alias{to_native}
 \alias{to_utf8}
 \title{Deep conversion to an encoding}
 \usage{
 to_encoding(x, ...)
 
 to_utf8(x, ...)
+
+to_native(x, ...)
 
 \method{to_encoding}{character}(x, ..., converter)
 }
@@ -26,6 +29,8 @@ a specific encoding.
 \describe{
   \item{\code{to_utf8}}{converts to UTF-8, using the \code{\link{utf8}} class
     where possible. Implemented as \code{to_encoding(x, as.utf8)}}.
+  \item{\code{to_native}}{converts to the native encoding.
+    Implemented as \code{to_encoding(x, enc2native)}}.
 }
 }
 \examples{

@@ -5,6 +5,8 @@
 #' \describe{
 #'   \item{\code{to_utf8}}{converts to UTF-8, using the \code{\link{utf8}} class
 #'     where possible. Implemented as \code{to_encoding(x, as.utf8)}}.
+#'   \item{\code{to_native}}{converts to the native encoding.
+#'     Implemented as \code{to_encoding(x, enc2native)}}.
 #' }
 #'
 #' @inheritParams base::Encoding
@@ -18,6 +20,10 @@
 #' @rdname to_encoding
 #' @export
 to_utf8 <- function(x, ...) to_encoding(x, ..., converter = as.utf8)
+
+#' @rdname to_encoding
+#' @export
+to_native <- function(x, ...) to_encoding(x, ..., converter = enc2native)
 
 to_encoding <- function(x, ...) UseMethod("to_encoding", x)
 
