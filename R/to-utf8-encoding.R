@@ -33,11 +33,9 @@ to_encoding.data.frame <- function(x, ...) {
 #' @rdname to_encoding
 #' @param converter A function that accepts a character value as first argument
 #' @export
-to_encoding.character <- function(x, ..., unclass = FALSE, converter) {
+to_encoding.character <- function(x, ..., converter) {
   x <- converter(x, ...)
-  if (unclass)
-    x <- unclass(x)
-  attrib_to_encoding(x, unclass = unclass, converter = converter)
+  attrib_to_encoding(x, ..., converter = converter)
 }
 
 #' @export
@@ -61,10 +59,19 @@ attrib_to_encoding <- function(x, ...) {
 }
 
 named_to_encoding_except_class <- function(attrib, ..., unclass = FALSE) {
-  is_class <- which(names(attrib) == "class")
+  if (unclass) {
+    attrib <- attrib[names(attrib) != "class"]
+    is_class <- integer()
+  } else {
+    is_class <- which(names(attrib) == "class")
+  }
+
   if (length(is_class) > 0) {
     attrib[-is_class] <- to_encoding(unname(attrib)[-is_class], ...)
-    attrib[[is_class]] <- to_encoding(unname(attrib)[[is_class]], ..., unclass = TRUE)
+
+    # unclass(): The "class" attribute doesn't need to have a class attribute itself
+    # unclass = TRUE: To prevent endless recursion
+    attrib[[is_class]] <- unclass(to_encoding(unname(attrib)[[is_class]], ..., unclass = TRUE))
   } else {
     attrib <- to_encoding(unname(attrib), ...)
   }
