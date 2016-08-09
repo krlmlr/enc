@@ -1,3 +1,8 @@
+## utf8 0.0-7 (2016-08-09)
+
+- New general `to_encoding()` with variants `to_native()`, `to_latin1()` and `to_alien()`. The existing `to_utf8` now uses `to_encoding()` (#4).
+
+
 ## utf8 0.0-6 (2016-08-09)
 
 - Fix `R CMD check` errors.
