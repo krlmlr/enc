@@ -69,12 +69,6 @@ as.utf8.utf8_name <- function(x, ...) {
   as.utf8(as.character(x))
 }
 
-#' @rdname utf8_name
-#' @export
-as.name.utf8_name <- function(x, ...) {
-  as.name(enc2native(as.character(x)))
-}
-
 # Output ------------------------------------------------------------------
 
 #' @rdname utf8_name
