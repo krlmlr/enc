@@ -14,14 +14,7 @@
 
 #' @rdname to_encoding
 #' @export
-to_utf8 <- function(x, ...) to_encoding(x, ..., converter = utf8_converter)
-
-utf8_converter <- function(x, ..., use_class = TRUE) {
-  if (use_class)
-    as.utf8(x)
-  else
-    enc2utf8(x)
-}
+to_utf8 <- function(x, ...) to_encoding(x, ..., converter = as.utf8)
 
 to_encoding <- function(x, ...) UseMethod("to_encoding", x)
 
@@ -40,9 +33,11 @@ to_encoding.data.frame <- function(x, ...) {
 #' @rdname to_encoding
 #' @param converter A function that accepts a character value as first argument
 #' @export
-to_encoding.character <- function(x, ..., converter) {
+to_encoding.character <- function(x, ..., unclass = FALSE, converter) {
   x <- converter(x, ...)
-  attrib_to_encoding(x, converter = converter)
+  if (unclass)
+    x <- unclass(x)
+  attrib_to_encoding(x, unclass = unclass, converter = converter)
 }
 
 #' @export
@@ -65,11 +60,11 @@ attrib_to_encoding <- function(x, ...) {
   x
 }
 
-named_to_encoding_except_class <- function(attrib, ...) {
+named_to_encoding_except_class <- function(attrib, ..., unclass = FALSE) {
   is_class <- which(names(attrib) == "class")
   if (length(is_class) > 0) {
     attrib[-is_class] <- to_encoding(unname(attrib)[-is_class], ...)
-    attrib[[is_class]] <- to_encoding(unname(attrib)[[is_class]], ..., use_class = FALSE)
+    attrib[[is_class]] <- to_encoding(unname(attrib)[[is_class]], ..., unclass = TRUE)
   } else {
     attrib <- to_encoding(unname(attrib), ...)
   }
