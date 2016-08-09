@@ -4,6 +4,7 @@
 #' UTF-8, using the \code{\link{utf8}} class where possible.
 #'
 #' @inheritParams base::Encoding
+#' @param ... passed on to methods
 #' @export
 #' @examples
 #' to_utf8(letters)

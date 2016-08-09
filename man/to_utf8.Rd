@@ -8,6 +8,8 @@ to_utf8(x, ...)
 }
 \arguments{
 \item{x}{A character vector.}
+
+\item{...}{passed on to methods}
 }
 \description{
 Converts all characters directly or indirectly contained in an object to
