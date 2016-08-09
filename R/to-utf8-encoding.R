@@ -2,11 +2,17 @@
 #'
 #' Converts all characters directly or indirectly contained in an object to
 #' a specific encoding.
+#' This works even if the encoding is different in the elements of a character
+#' vector.
+#'
 #' \describe{
 #'   \item{\code{to_utf8}}{converts to UTF-8, using the \code{\link{utf8}} class
-#'     where possible. Implemented as \code{to_encoding(x, as.utf8)}}.
+#'     where possible. Implemented as \code{to_encoding(x, as.utf8)}}
 #'   \item{\code{to_native}}{converts to the native encoding.
-#'     Implemented as \code{to_encoding(x, enc2native)}}.
+#'     Implemented as \code{to_encoding(x, enc2native)}}
+#'   \item{\code{to_latin1}}{converts to the latin-1 encoding}
+#'   \item{\code{to_alien}}{converts to the "other" encoding, i.e.,
+#'     UTF-8 on Windows and latin-1 on Linux and OS X.}
 #' }
 #'
 #' @inheritParams base::Encoding
@@ -24,6 +30,21 @@ to_utf8 <- function(x, ...) to_encoding(x, ..., converter = as.utf8)
 #' @rdname to_encoding
 #' @export
 to_native <- function(x, ...) to_encoding(x, ..., converter = enc2native)
+
+enc2latin1 <- function(x) {
+  unclass(vapply(x, function(xx) iconv(xx, from = encoding(xx), to = "latin1"),
+                 character(1L), USE.NAMES = FALSE))
+}
+
+#' @rdname to_encoding
+#' @export
+to_latin1 <- function(x, ...) to_encoding(x, ..., converter = enc2latin1)
+
+enc2alien <- if (.Platform$OS.type == "windows") enc2utf8 else enc2latin1
+
+#' @rdname to_encoding
+#' @export
+to_alien <- function(x, ...) to_encoding(x, ..., converter = enc2alien)
 
 to_encoding <- function(x, ...) UseMethod("to_encoding", x)
 
@@ -49,8 +70,11 @@ to_encoding.character <- function(x, ..., converter) {
 }
 
 #' @export
-to_encoding.utf8 <- function(x, ...) {
-  to_encoding.default(x)
+to_encoding.utf8 <- function(x, ..., converter) {
+  if (identical(converter, as.utf8))
+    to_encoding.default(x, ..., converter = converter)
+  else
+    to_encoding.character(x, ..., converter = converter)
 }
 
 #' @export
