@@ -1,6 +1,6 @@
 
-utf8 [![Travis-CI Build Status](https://travis-ci.org/krlmlr/utf8.svg?branch=master)](https://travis-ci.org/krlmlr/utf8) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/utf8/master.svg)](https://codecov.io/github/krlmlr/utf8?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/utf8)](https://cran.r-project.org/package=utf8)
-==============================================================================================================================================================================================================================================================================================================================================================================
+utf8 [![Travis-CI Build Status](https://travis-ci.org/krlmlr/utf8.svg?branch=master)](https://travis-ci.org/krlmlr/utf8) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/utf8?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/utf8) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/utf8/master.svg)](https://codecov.io/github/krlmlr/utf8?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/utf8)](https://cran.r-project.org/package=utf8)
+=============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
 A simple class for storing UTF-8 strings
 
@@ -17,10 +17,6 @@ a <- utf8("ä")
 a[2] <- "ö"
 class(a)
 #> [1] "utf8"
-Encoding(a) <- "latin1"
-#> Warning: cannot change encoding of utf8
-Encoding(a)
-#> [1] "UTF-8" "UTF-8"
 
 data.frame(abc = letters[1:3], utf8 = utf8(letters[1:3]))
 #>   abc utf8

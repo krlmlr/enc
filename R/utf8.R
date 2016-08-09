@@ -20,7 +20,7 @@ NULL
 #' @rdname utf8
 #' @param x A vector
 #' @export
-utf8 <- function(x = NULL) {
+utf8 <- function(x = character()) {
   as.utf8(x)
 }
 
@@ -43,8 +43,14 @@ as.utf8.default <- function(x, ...) {
 
 #' @rdname utf8
 #' @export
+as.utf8.NULL <- function(x, ...) {
+  NULL
+}
+
+#' @rdname utf8
+#' @export
 as.utf8.character <- function(x, ...) {
-  structure(enc2utf8(x), class = "utf8")
+  structure(enc2utf8(x), names = as.utf8(names(x)), class = "utf8")
 }
 
 #' @rdname utf8
@@ -99,6 +105,12 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
 #' @export
 c.utf8 <- function(x, ..., recursive = FALSE) {
   as.utf8(NextMethod())
+}
+
+#' @export
+`names<-.utf8` <- function(x, value) {
+  attr(x, "names") <- as.utf8(value)
+  x
 }
 
 
