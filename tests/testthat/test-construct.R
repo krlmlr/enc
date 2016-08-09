@@ -15,3 +15,7 @@ test_that("constructor coerces to character", {
 test_that("can construct empty utf8", {
   expect_identical(utf8(), as.utf8(character()))
 })
+
+test_that("names are UTF8", {
+  expect_is(names(utf8(setNames(nm = letters))), "utf8")
+})

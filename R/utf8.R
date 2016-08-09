@@ -50,7 +50,7 @@ as.utf8.NULL <- function(x, ...) {
 #' @rdname utf8
 #' @export
 as.utf8.character <- function(x, ...) {
-  structure(enc2utf8(x), class = "utf8")
+  structure(enc2utf8(x), names = as.utf8(names(x)), class = "utf8")
 }
 
 #' @rdname utf8
