@@ -1,8 +1,11 @@
 #' Deep conversion to an encoding
 #'
 #' Converts all characters directly or indirectly contained in an object to
-#' a specific encoding. \code{to_utf8} converts to
-#' UTF-8, using the \code{\link{utf8}} class where possible.
+#' a specific encoding.
+#' \describe{
+#'   \item{\code{to_utf8}}{converts to UTF-8, using the \code{\link{utf8}} class
+#'     where possible. Implemented as \code{to_encoding(x, as.utf8)}}.
+#' }
 #'
 #' @inheritParams base::Encoding
 #' @param ... passed on to methods
@@ -32,6 +35,7 @@ to_encoding.data.frame <- function(x, ...) {
 
 #' @rdname to_encoding
 #' @param converter A function that accepts a character value as first argument
+#'   and returns a (possibly classed) character with the desired encoding
 #' @export
 to_encoding.character <- function(x, ..., converter) {
   x <- converter(x, ...)

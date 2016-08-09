@@ -17,12 +17,16 @@ to_utf8(x, ...)
 
 \item{...}{passed on to methods}
 
-\item{converter}{A function that accepts a character value as first argument}
+\item{converter}{A function that accepts a character value as first argument
+and returns a (possibly classed) character with the desired encoding}
 }
 \description{
 Converts all characters directly or indirectly contained in an object to
-a specific encoding. \code{to_utf8} converts to
-UTF-8, using the \code{\link{utf8}} class where possible.
+a specific encoding.
+\describe{
+  \item{\code{to_utf8}}{converts to UTF-8, using the \code{\link{utf8}} class
+    where possible. Implemented as \code{to_encoding(x, as.utf8)}}.
+}
 }
 \examples{
 to_utf8(letters)
