@@ -8,11 +8,7 @@ test_that("Update keeps encoding", {
   expect_identical(x, x2)
 
   x2 <- x
-  x2[2] <- iconv("\u00e4", to = "latin1")
-  expect_identical(x, x2)
-
-  x2 <- x
-  x2[2] <- iconv("\u00e4", to = "utf8")
+  x2[2] <- to_latin1("\u00e4")
   expect_identical(x, x2)
 
   x2 <- x
@@ -20,11 +16,7 @@ test_that("Update keeps encoding", {
   expect_identical(x, x2)
 
   x2 <- x
-  x2[[2]] <- iconv("\u00e4", to = "latin1")
-  expect_identical(x, x2)
-
-  x2 <- x
-  x2[[2]] <- iconv("\u00e4", to = "utf8")
+  x2[[2]] <- to_latin1("\u00e4")
   expect_identical(x, x2)
 })
 
