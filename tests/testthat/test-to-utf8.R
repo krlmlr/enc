@@ -21,8 +21,8 @@ test_that("mtcars", {
 
 test_that("umlauts", {
   data <- data.frame(a = I(c("o", "u")))
-  colnames(data) <- enc2native("\\u00e4")
-  data[[1]] <- enc2native(c("\\u00f6", "\\u00fc"))
+  colnames(data) <- enc2native("\u00e4")
+  data[[1]] <- enc2native(c("\u00f6", "\u00fc"))
 
   data_utf8 <- to_utf8(data)
   expect_is(colnames(data_utf8), "utf8")
