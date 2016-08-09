@@ -29,7 +29,7 @@
 to_utf8 <- function(x, ...) to_encoding(x, ..., converter = as.utf8)
 
 iconv_to_native <- if (.Platform$OS.type == "windows") {
-  function(x, ...) enc2native(x)
+  function(x, ...) enc2native(as.character(x))
 } else {
   function(x, ...) as.utf8(x)
 }
