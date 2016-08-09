@@ -1,5 +1,4 @@
 #include <sys/time.h>
-#include <sys/resource.h>
 
 #define USE_RINTERNALS
 #include <R.h>
