@@ -5,6 +5,7 @@
 #' on the last line.
 #' @param path Path to the file.
 #' @inheritParams base::readLines
+#' @param file_encoding The encoding to assume for the input file.
 #' @export
 read_lines <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
                        skipNul = FALSE) {
@@ -15,4 +16,20 @@ read_lines <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
     con, warn = FALSE, n = n, ok = ok, skipNul = skipNul, encoding = "UTF-8")
   Encoding(lines) <- "UTF-8"
   lines
+}
+
+#' Writes to a text file
+#'
+#' This function is a drop-in replacement for [writeLines()] from disk files.
+#' It always expects text in the UTF-8 encoding, and by default writes in the
+#' UTF-8 encoding with Unix line separators.
+#' @param path Path to the file.
+#' @param file_encoding The encoding for the output file.
+#' @inheritParams base::writeLines
+#' @export
+write_lines <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
+  con <- file(path, encoding = file_encoding, "wb")
+  on.exit(close(con), add = TRUE)
+
+  writeLines(text, file, sep)
 }

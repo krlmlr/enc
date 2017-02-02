@@ -10,6 +10,8 @@ read_lines(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 \arguments{
 \item{path}{Path to the file.}
 
+\item{file_encoding}{The encoding to assume for the input file.}
+
 \item{n}{integer.  The (maximal) number of lines to
     read.  Negative values indicate that one should read up to the end of
     input on the connection.}
