@@ -6,7 +6,7 @@
 #'
 #' @seealso [readr::read_lines()] for a faster alternative.
 #' @family file functions
-#' @param path Path to the file.
+#' @param path Path to the file
 #' @inheritParams base::readLines
 #' @param file_encoding The encoding to assume for the input file.
 #' @export
@@ -29,9 +29,9 @@ read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 #'
 #' @seealso [readr::write_lines()] for a faster alternative.
 #' @family file functions
-#' @param path Path to the file.
 #' @param file_encoding The encoding for the output file.
 #' @inheritParams base::writeLines
+#' @inheritParams read_lines
 #' @export
 write_lines_enc <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
   raw_data <- get_raw_file_data(text, file_encoding, sep)
@@ -44,4 +44,41 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 
   text_sep_matrix <- matrix(c(text_enc, sep_enc), nrow = 2, byrow = TRUE)
   unlist(text_sep_matrix)
+}
+
+#' Transform a text file
+#'
+#' Reads a file from disk, applies a function on the contents, and optionally
+#' writes the file back if different.
+#'
+#' @family file functions
+#' @param path A vector of file paths.
+#' @param fun A function that returns a character vector.
+#' @param write_back Should the results of the transformation be written back
+#'   to the file?
+#' @return A named logical that indicates if the file has changed, NA if an
+#'   error occurred
+#' @inheritParams base::readLines
+#' @inheritParams read_lines_enc
+#' @param file_encoding The encoding to assume for the input file.
+#' @export
+transform_lines <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
+                            skipNul = FALSE, write_back = TRUE) {
+  vapply(
+    utils::setNames(nm = path), transform_lines_one, logical(1L),
+    fun = fun, file_encoding = file_encoding, ok = ok, skipNul = skipNul, write_back = TRUE)
+}
+
+transform_lines_one <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
+                                skipNul = FALSE, write_back = TRUE) {
+  text <- read_lines(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
+  new_text <- fun(text)
+  if (!identical(text, new_text)) {
+    if (write_back) {
+      write_lines(path, file_encoding = file_encoding)
+    }
+    TRUE
+  } else {
+    FALSE
+  }
 }

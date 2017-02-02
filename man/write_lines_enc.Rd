@@ -9,8 +9,6 @@ write_lines_enc(text, path, file_encoding = "UTF-8", sep = "\\n")
 \arguments{
 \item{text}{A character vector}
 
-\item{path}{Path to the file.}
-
 \item{file_encoding}{The encoding for the output file.}
 
 \item{sep}{character string.  A string to be written to the connection
@@ -24,5 +22,6 @@ UTF-8 encoding with Unix line separators.
 \seealso{
 \code{\link[readr:write_lines]{readr::write_lines()}} for a faster alternative.
 
-Other file functions: \code{\link{read_lines_enc}}
+Other file functions: \code{\link{read_lines_enc}},
+  \code{\link{transform_lines}}
 }

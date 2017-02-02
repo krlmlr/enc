@@ -8,7 +8,7 @@ read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
   skipNul = FALSE)
 }
 \arguments{
-\item{path}{Path to the file.}
+\item{path}{Path to the file}
 
 \item{file_encoding}{The encoding to assume for the input file.}
 
@@ -29,5 +29,6 @@ on the last line.
 \seealso{
 \code{\link[readr:read_lines]{readr::read_lines()}} for a faster alternative.
 
-Other file functions: \code{\link{write_lines_enc}}
+Other file functions: \code{\link{transform_lines}},
+  \code{\link{write_lines_enc}}
 }
