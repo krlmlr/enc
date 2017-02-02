@@ -13,4 +13,4 @@ Encoding: UTF-8
 LazyData: true
 BugReports: https://github.com/krlmlr/utf8/issues
 URL: https://github.com/krlmlr/utf8
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.0

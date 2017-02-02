@@ -2,8 +2,19 @@
 % Please edit documentation in R/utf8-package.R
 \docType{package}
 \name{utf8-package}
-\title{A simple class for storing UTF-8 strings}
+\title{utf8: A simple class for storing UTF-8 strings}
 \description{
 Implements an S3 class for storing UTF-8 strings, based on regular characters.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/krlmlr/utf8}
+  \item Report bugs at \url{https://github.com/krlmlr/utf8/issues}
+}
 
+}
+\author{
+\strong{Maintainer}: Kirill Müller \email{krlmlr+r@mailbox.org}
+
+}
