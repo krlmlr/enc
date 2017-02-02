@@ -75,13 +75,22 @@ transform_lines <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
 transform_lines_one <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
                                 skipNul = FALSE, sep = "\n", write_back = TRUE) {
   text <- read_lines_enc(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
-  new_text <- fun(text)
-  if (!isTRUE(identical(text, new_text))) {
-    if (write_back) {
-      write_lines_enc(new_text, path, file_encoding = file_encoding, sep = sep)
+  tryCatch(
+    {
+      new_text <- fun(text)
+      if (!isTRUE(identical(text, new_text))) {
+        if (write_back) {
+          write_lines_enc(new_text, path, file_encoding = file_encoding, sep = sep)
+        }
+        TRUE
+      } else {
+        FALSE
+      }
+    },
+
+    error = function(e) {
+      warning("When processing ", path, ": ", conditionMessage(e), call. = FALSE)
+      NA
     }
-    TRUE
-  } else {
-    FALSE
-  }
+  )
 }

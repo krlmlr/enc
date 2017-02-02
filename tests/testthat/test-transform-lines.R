@@ -9,6 +9,7 @@ all_texts <- list(
 
 add_one <- function(x) c(x, "")
 remove_one <- function(x) x[-length(x)]
+error_if_long <- function(x) { if (length(x) > 1) stop(); add_one(x) }
 
 setup_paths <- function(..., text = all_texts) {
   root <- tempfile("utf8")
@@ -28,6 +29,18 @@ test_that("identity transformation works", {
   expect_equal(digest_before, digest_after)
   expect_false(any(ret))
   expect_equal(names(ret), paths)
+})
+
+test_that("errors are caught and returned as NA", {
+  paths <- setup_paths()
+  digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+  expect_warning(
+    ret <- transform_lines(paths, error_if_long),
+    "When processing")
+  digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+  expect_equal(digest_before[is.na(ret)], digest_after[is.na(ret)])
+  expect_true(is.na(ret[2]))
+  expect_true(all(ret[-2]))
 })
 
 test_that("forward-reverse transformation works for CRLF", {
