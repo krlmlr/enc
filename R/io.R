@@ -57,6 +57,8 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 #' @param fun A function that returns a character vector.
 #' @param write_back Should the results of the transformation be written back
 #'   to the file?
+#' @param verbose Should the function show a message with a list of changed
+#'   files?
 #' @return A named logical that indicates if the file has changed, NA if an
 #'   error occurred
 #' @inheritParams base::readLines
@@ -65,11 +67,23 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 #' @param file_encoding The encoding to assume for the input file.
 #' @export
 transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
-                                skipNul = FALSE, sep = "\n", write_back = TRUE) {
-  vapply(
+                                skipNul = FALSE, sep = "\n", write_back = TRUE,
+                                verbose = interactive()) {
+  ret <- vapply(
     stats::setNames(nm = path), transform_lines_enc_one, logical(1L),
     fun = fun, file_encoding = file_encoding, ok = ok, skipNul = skipNul,
     sep = sep, write_back = TRUE)
+
+  if (verbose) {
+    if (!any(ret)) {
+      message("No files changed.")
+    } else {
+      message("Files changed: ", ellipsis(names(ret)[ret]))
+    }
+    invisible(ret)
+  } else {
+    ret
+  }
 }
 
 transform_lines_enc_one <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,

@@ -5,7 +5,8 @@
 \title{Transform a text file}
 \usage{
 transform_lines_enc(path, fun, file_encoding = "UTF-8", ok = TRUE,
-  skipNul = FALSE, sep = "\\n", write_back = TRUE)
+  skipNul = FALSE, sep = "\\n", write_back = TRUE,
+  verbose = interactive())
 }
 \arguments{
 \item{path}{A vector of file paths.}
@@ -24,6 +25,9 @@ transform_lines_enc(path, fun, file_encoding = "UTF-8", ok = TRUE,
 
 \item{write_back}{Should the results of the transformation be written back
 to the file?}
+
+\item{verbose}{Should the function show a message with a list of changed
+files?}
 }
 \value{
 A named logical that indicates if the file has changed, NA if an
