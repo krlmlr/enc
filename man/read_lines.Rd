@@ -26,3 +26,6 @@ This function is a drop-in replacement for \code{\link[=readLines]{readLines()}}
 It always returns text in the UTF-8 encoding and never warns on missing EOL
 on the last line.
 }
+\seealso{
+\code{\link[readr:read_lines]{readr::read_lines()}} for a faster alternative.
+}

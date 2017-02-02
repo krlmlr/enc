@@ -3,6 +3,9 @@
 #' This function is a drop-in replacement for [readLines()] from disk files.
 #' It always returns text in the UTF-8 encoding and never warns on missing EOL
 #' on the last line.
+#'
+#' @seealso [readr::read_lines()] for a faster alternative.
+#'
 #' @param path Path to the file.
 #' @inheritParams base::readLines
 #' @param file_encoding The encoding to assume for the input file.
@@ -23,6 +26,9 @@ read_lines <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 #' This function is a drop-in replacement for [writeLines()] from disk files.
 #' It always expects text in the UTF-8 encoding, and by default writes in the
 #' UTF-8 encoding with Unix line separators.
+#'
+#' @seealso [readr::write_lines()] for a faster alternative.
+#'
 #' @param path Path to the file.
 #' @param file_encoding The encoding for the output file.
 #' @inheritParams base::writeLines
