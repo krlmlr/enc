@@ -28,8 +28,14 @@ read_lines <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 #' @inheritParams base::writeLines
 #' @export
 write_lines <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
-  con <- file(path, encoding = file_encoding, "wb")
-  on.exit(close(con), add = TRUE)
+  raw_data <- get_raw_file_data(text, file_encoding, sep)
+  writeBin(raw_data, path)
+}
 
-  writeLines(text, file, sep)
+get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
+  text_enc <- iconv(text, from = "UTF-8", to = file_encoding, toRaw = TRUE)
+  sep_enc <- rep(list(charToRaw(sep[[1L]])), length(text_enc))
+
+  text_sep_matrix <- matrix(c(text_enc, sep_enc), nrow = 2, byrow = TRUE)
+  unlist(text_sep_matrix)
 }
