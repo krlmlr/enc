@@ -2,11 +2,11 @@ methods::setOldClass(c("utf8", "character"))
 
 #' A simple class for storing UTF-8 strings
 #'
-#' The values are stored as a \code{\link{character}} vector.
-#' On construction, the \code{\link[base]{enc2utf8}} function is called on the
+#' The values are stored as a [character()] vector.
+#' On construction, the [enc2utf8()] function is called on the
 #' input.  Subsetting and concatenation operations on an object of this class
 #' return an object of this class again.
-#' Calls to \code{\link[base]{Encoding<-}} are not intercepted.
+#' Calls to [Encoding<-()] are not intercepted.
 #'
 #' @name utf8
 #' @examples
