@@ -56,11 +56,11 @@ as.utf8(x, ...)
 \item{nm}{Name of column in new data frame}
 }
 \description{
-The values are stored as a \code{\link{character}} vector.
-On construction, the \code{\link[base]{enc2utf8}} function is called on the
+The values are stored as a \code{\link[=character]{character()}} vector.
+On construction, the \code{\link[=enc2utf8]{enc2utf8()}} function is called on the
 input.  Subsetting and concatenation operations on an object of this class
 return an object of this class again.
-Calls to \code{\link[base]{Encoding<-}} are not intercepted.
+Calls to \code{\link[=Encoding<-]{Encoding<-()}} are not intercepted.
 }
 \examples{
 utf8(letters)

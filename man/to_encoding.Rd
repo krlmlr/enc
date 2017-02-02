@@ -37,14 +37,14 @@ vector.
 }
 \details{
 \describe{
-  \item{\code{to_utf8}}{converts to UTF-8, using the \code{\link{utf8}} class
-    where possible. Implemented as \code{to_encoding(x, as.utf8)}}
-  \item{\code{to_native}}{converts to the native encoding.
-    Implemented as \code{to_encoding(x, enc2native)} on Windows
-    and as \code{to_encoding(x, as.utf8)} on Linux and OS X}
-  \item{\code{to_latin1}}{converts to the latin-1 encoding}
-  \item{\code{to_alien}}{converts to the "other" encoding, i.e.,
-    UTF-8 on Windows and latin-1 on Linux and OS X.}
+\item{\code{to_utf8}}{converts to UTF-8, using the \code{\link[=utf8]{utf8()}} class
+where possible. Implemented as \code{to_encoding(x, as.utf8)}}
+\item{\code{to_native}}{converts to the native encoding.
+Implemented as \code{to_encoding(x, enc2native)} on Windows
+and as \code{to_encoding(x, as.utf8)} on Linux and OS X}
+\item{\code{to_latin1}}{converts to the latin-1 encoding}
+\item{\code{to_alien}}{converts to the "other" encoding, i.e.,
+UTF-8 on Windows and latin-1 on Linux and OS X.}
 }
 }
 \examples{

@@ -1,9 +1,9 @@
 #' Encoding information
 #'
-#' The \code{encoding} function returns \code{"ASCII"} if the entire value
+#' The `encoding` function returns `"ASCII"` if the entire value
 #' consists of ASCII symbols only, and works identically to
-#' \code{\link[base]{Encoding}} otherwise.
-#' The \code{all_utf8} function is an efficient variant of
+#' [Encoding()] otherwise.
+#' The `all_utf8` function is an efficient variant of
 #' \code{all(encoding(x) \%in\% c("ASCII", "UTF-8"))}.
 #'
 #' @inheritParams base::Encoding
