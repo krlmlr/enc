@@ -24,7 +24,7 @@ setup_paths <- function(..., text = all_texts) {
 test_that("identity transformation works", {
   paths <- setup_paths()
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
-  ret <- transform_lines(paths, identity)
+  ret <- transform_lines_enc(paths, identity)
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before, digest_after)
   expect_false(any(ret))
@@ -35,7 +35,7 @@ test_that("errors are caught and returned as NA", {
   paths <- setup_paths()
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_warning(
-    ret <- transform_lines(paths, error_if_long),
+    ret <- transform_lines_enc(paths, error_if_long),
     "When processing")
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before[is.na(ret)], digest_after[is.na(ret)])
@@ -46,8 +46,8 @@ test_that("errors are caught and returned as NA", {
 test_that("forward-reverse transformation works for CRLF", {
   paths <- setup_paths(sep = "\r\n")
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
-  ret <- transform_lines(paths, add_one)
-  ret <- transform_lines(paths, remove_one, sep = "\r\n")
+  ret <- transform_lines_enc(paths, add_one)
+  ret <- transform_lines_enc(paths, remove_one, sep = "\r\n")
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before, digest_after)
   expect_true(all(ret))
@@ -56,7 +56,7 @@ test_that("forward-reverse transformation works for CRLF", {
 test_that("remove transformation works for latin1", {
   paths <- setup_paths(file_encoding = "latin1", text = all_texts[-4])
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
-  ret <- transform_lines(paths, remove_one, file_encoding = "latin1")
+  ret <- transform_lines_enc(paths, remove_one, file_encoding = "latin1")
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before[!ret], digest_after[!ret])
   expect_false(ret[1])
@@ -66,7 +66,7 @@ test_that("remove transformation works for latin1", {
 test_that("remove transformation works for GB2312", {
   paths <- setup_paths(file_encoding = "GB2312", text = all_texts[-3])
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
-  ret <- transform_lines(paths, add_one, file_encoding = "GB2312")
+  ret <- transform_lines_enc(paths, add_one, file_encoding = "GB2312")
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_true(all(digest_before != digest_after))
   expect_true(all(ret))

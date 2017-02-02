@@ -29,6 +29,6 @@ on the last line.
 \seealso{
 \code{\link[readr:read_lines]{readr::read_lines()}} for a faster alternative.
 
-Other file functions: \code{\link{transform_lines}},
+Other file functions: \code{\link{transform_lines_enc}},
   \code{\link{write_lines_enc}}
 }
