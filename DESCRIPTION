@@ -7,6 +7,7 @@ Description: Implements an S3 class for storing UTF-8 strings, based on regular 
 Imports:
     methods
 Suggests:
+    digest,
     readr,
     testthat
 License: GPL-3
