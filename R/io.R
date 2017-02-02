@@ -31,7 +31,7 @@ read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 #' @family file functions
 #' @param file_encoding The encoding for the output file.
 #' @inheritParams base::writeLines
-#' @inheritParams read_lines
+#' @inheritParams read_lines_enc
 #' @export
 write_lines_enc <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
   raw_data <- get_raw_file_data(text, file_encoding, sep)
@@ -61,6 +61,7 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 #'   error occurred
 #' @inheritParams base::readLines
 #' @inheritParams read_lines_enc
+#' @inheritParams write_lines_enc
 #' @param file_encoding The encoding to assume for the input file.
 #' @export
 transform_lines <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,

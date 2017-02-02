@@ -9,6 +9,8 @@ write_lines_enc(text, path, file_encoding = "UTF-8", sep = "\\n")
 \arguments{
 \item{text}{A character vector}
 
+\item{path}{Path to the file}
+
 \item{file_encoding}{The encoding for the output file.}
 
 \item{sep}{character string.  A string to be written to the connection

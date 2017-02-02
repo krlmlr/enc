@@ -5,7 +5,7 @@
 \title{Transform a text file}
 \usage{
 transform_lines(path, fun, file_encoding = "UTF-8", ok = TRUE,
-  skipNul = FALSE, write_back = TRUE)
+  skipNul = FALSE, sep = "\\n", write_back = TRUE)
 }
 \arguments{
 \item{path}{A vector of file paths.}
@@ -18,6 +18,9 @@ transform_lines(path, fun, file_encoding = "UTF-8", ok = TRUE,
     \code{n > 0} lines are read?  If not, an error will be generated.}
 
 \item{skipNul}{logical: should nuls be skipped?}
+
+\item{sep}{character string.  A string to be written to the connection
+    after each line of text.}
 
 \item{write_back}{Should the results of the transformation be written back
 to the file?}
