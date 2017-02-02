@@ -66,17 +66,17 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 transform_lines <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
                             skipNul = FALSE, write_back = TRUE) {
   vapply(
-    utils::setNames(nm = path), transform_lines_one, logical(1L),
+    stats::setNames(nm = path), transform_lines_one, logical(1L),
     fun = fun, file_encoding = file_encoding, ok = ok, skipNul = skipNul, write_back = TRUE)
 }
 
 transform_lines_one <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
                                 skipNul = FALSE, write_back = TRUE) {
-  text <- read_lines(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
+  text <- read_lines_enc(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
   new_text <- fun(text)
-  if (!identical(text, new_text)) {
+  if (!isTRUE(identical(text, new_text))) {
     if (write_back) {
-      write_lines(path, file_encoding = file_encoding)
+      write_lines_enc(path, file_encoding = file_encoding)
     }
     TRUE
   } else {
