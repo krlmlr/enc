@@ -39,6 +39,7 @@ write_lines_enc <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
 }
 
 get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
+  if (length(text) == 0) return(raw())
   text_enc <- iconv(text, from = "UTF-8", to = file_encoding, toRaw = TRUE)
   sep_enc <- rep(list(charToRaw(sep[[1L]])), length(text_enc))
 
