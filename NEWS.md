@@ -1,3 +1,9 @@
+## utf8 0.0-9 (2017-02-02)
+
+- New `transform_lines_enc()`.
+- New `read_lines()` and `write_lines()` for robust reading and writing of text files (#8).
+
+
 ## utf8 0.0-8 (2016-08-09)
 
 - Full test coverage.
