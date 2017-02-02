@@ -10,7 +10,7 @@
 #' @inheritParams base::readLines
 #' @param file_encoding The encoding to assume for the input file.
 #' @export
-read_lines <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
+read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
                        skipNul = FALSE) {
   con <- file(path, encoding = file_encoding)
   on.exit(close(con), add = TRUE)
@@ -33,7 +33,7 @@ read_lines <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 #' @param file_encoding The encoding for the output file.
 #' @inheritParams base::writeLines
 #' @export
-write_lines <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
+write_lines_enc <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
   raw_data <- get_raw_file_data(text, file_encoding, sep)
   writeBin(raw_data, path)
 }
