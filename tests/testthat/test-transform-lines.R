@@ -24,7 +24,10 @@ setup_paths <- function(..., text = all_texts) {
 test_that("identity transformation works", {
   paths <- setup_paths()
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
-  ret <- transform_lines_enc(paths, identity)
+  expect_message(
+    ret <- transform_lines_enc(paths, identity, verbose = TRUE),
+    "No files changed"
+  )
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before, digest_after)
   expect_false(any(ret))
@@ -47,7 +50,11 @@ test_that("forward-reverse transformation works for CRLF", {
   paths <- setup_paths(sep = "\r\n")
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   ret <- transform_lines_enc(paths, add_one)
-  ret <- transform_lines_enc(paths, remove_one, sep = "\r\n")
+  expect_message(
+    ret <- transform_lines_enc(paths, remove_one, sep = "\r\n", verbose = TRUE),
+    paste0("Files changed: ", paths[ret][[1]]),
+    fixed = TRUE
+  )
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before, digest_after)
   expect_true(all(ret))
