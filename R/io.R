@@ -5,7 +5,7 @@
 #' on the last line.
 #'
 #' @seealso [readr::read_lines()] for a faster alternative.
-#'
+#' @family file functions
 #' @param path Path to the file.
 #' @inheritParams base::readLines
 #' @param file_encoding The encoding to assume for the input file.
@@ -28,7 +28,7 @@ read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 #' UTF-8 encoding with Unix line separators.
 #'
 #' @seealso [readr::write_lines()] for a faster alternative.
-#'
+#' @family file functions
 #' @param path Path to the file.
 #' @param file_encoding The encoding for the output file.
 #' @inheritParams base::writeLines

@@ -28,4 +28,6 @@ on the last line.
 }
 \seealso{
 \code{\link[readr:read_lines]{readr::read_lines()}} for a faster alternative.
+
+Other file functions: \code{\link{write_lines_enc}}
 }
