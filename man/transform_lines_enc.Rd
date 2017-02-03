@@ -5,8 +5,7 @@
 \title{Transform a text file}
 \usage{
 transform_lines_enc(path, fun, file_encoding = "UTF-8", ok = TRUE,
-  skipNul = FALSE, sep = "\\n", write_back = TRUE,
-  verbose = interactive())
+  skipNul = FALSE, write_back = TRUE, verbose = interactive())
 }
 \arguments{
 \item{path}{A vector of file paths.}
@@ -19,9 +18,6 @@ transform_lines_enc(path, fun, file_encoding = "UTF-8", ok = TRUE,
     \code{n > 0} lines are read?  If not, an error will be generated.}
 
 \item{skipNul}{logical: should nuls be skipped?}
-
-\item{sep}{character string.  A string to be written to the connection
-    after each line of text.}
 
 \item{write_back}{Should the results of the transformation be written back
 to the file?}
@@ -36,6 +32,8 @@ error occurred
 \description{
 Reads a file from disk, applies a function on the contents, and optionally
 writes the file back if different.
+The line ending separator of the input file is used if it can be read and
+contains at least one, otherwise \code{\link[=native_eol]{native_eol()}} is used.
 }
 \seealso{
 Other file functions: \code{\link{read_lines_enc}},
