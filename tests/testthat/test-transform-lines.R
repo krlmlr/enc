@@ -51,7 +51,7 @@ test_that("forward-reverse transformation works for CRLF", {
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   ret <- transform_lines_enc(paths, add_one)
   expect_message(
-    ret <- transform_lines_enc(paths, remove_one, sep = "\r\n", verbose = TRUE),
+    ret <- transform_lines_enc(paths, remove_one, verbose = TRUE),
     paste0("Files changed: ", paths[ret][[1]]),
     fixed = TRUE
   )

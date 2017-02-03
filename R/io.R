@@ -11,7 +11,7 @@
 #' @param file_encoding The encoding to assume for the input file.
 #' @export
 read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
-                       skipNul = FALSE) {
+                           skipNul = FALSE) {
   con <- file(path, encoding = file_encoding)
   on.exit(close(con), add = TRUE)
 
@@ -51,6 +51,8 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 #'
 #' Reads a file from disk, applies a function on the contents, and optionally
 #' writes the file back if different.
+#' The line ending separator of the input file is used if it can be read and
+#' contains at least one, otherwise [native_eol()] is used.
 #'
 #' @family file functions
 #' @param path A vector of file paths.
@@ -67,12 +69,12 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 #' @param file_encoding The encoding to assume for the input file.
 #' @export
 transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
-                                skipNul = FALSE, sep = "\n", write_back = TRUE,
+                                skipNul = FALSE, write_back = TRUE,
                                 verbose = interactive()) {
   ret <- vapply(
     stats::setNames(nm = path), transform_lines_enc_one, logical(1L),
     fun = fun, file_encoding = file_encoding, ok = ok, skipNul = skipNul,
-    sep = sep, write_back = TRUE)
+    write_back = TRUE)
 
   if (verbose) {
     if (!any(ret)) {
@@ -87,8 +89,9 @@ transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
 }
 
 transform_lines_enc_one <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
-                                    skipNul = FALSE, sep = "\n", write_back = TRUE) {
+                                    skipNul = FALSE, write_back = TRUE) {
   text <- read_lines_enc(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
+  sep <- detect_sep(path)
   tryCatch(
     {
       new_text <- fun(text)
