@@ -78,3 +78,11 @@ test_that("remove transformation works for GB2312", {
   expect_true(all(digest_before != digest_after))
   expect_true(all(ret))
 })
+
+test_that("transform missing file", {
+  path <- tempfile("utf8")
+  expect_warning(
+    expect_true(transform_lines_enc(path, add_one)),
+    "cannot open file")
+  expect_warning(transform_lines_enc(path, identity), NA)
+})
