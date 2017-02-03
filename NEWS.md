@@ -1,3 +1,8 @@
+## utf8 0.0-10 (2017-02-03)
+
+- `transform_lines_enc()` auto-detects EOL delimiter.
+
+
 ## utf8 0.0-9 (2017-02-02)
 
 - New `transform_lines_enc()`.
