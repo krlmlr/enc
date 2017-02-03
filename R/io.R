@@ -21,6 +21,22 @@ read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
   lines
 }
 
+#' @rdname read_lines_enc
+#' @description `try_read_lines_enc()` is a variant that returns an
+#'   empty character vector on error, with a warning.
+#' @export
+try_read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
+                               skipNul = FALSE) {
+  tryCatch(
+    read_lines_enc(
+      path, file_encoding = file_encoding, ok = ok, skipNul = skipNul),
+    error = function(e) {
+      warning("Cannot read ", path, ": ", conditionMessage(e))
+      character()
+    }
+  )
+}
+
 #' Writes to a text file
 #'
 #' This function is a drop-in replacement for [writeLines()] from disk files.
@@ -90,7 +106,7 @@ transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
 
 transform_lines_enc_one <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
                                     skipNul = FALSE, write_back = TRUE) {
-  text <- read_lines_enc(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
+  text <- try_read_lines_enc(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
   sep <- detect_sep(path)
   tryCatch(
     {
