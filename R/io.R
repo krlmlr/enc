@@ -90,7 +90,7 @@ transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
   ret <- vapply(
     stats::setNames(nm = path), transform_lines_enc_one, logical(1L),
     fun = fun, file_encoding = file_encoding, ok = ok, skipNul = skipNul,
-    write_back = TRUE)
+    write_back = write_back)
 
   if (verbose) {
     if (!any(ret)) {
