@@ -26,8 +26,8 @@ to the file?}
 files?}
 }
 \value{
-A named logical that indicates if the file has changed, NA if an
-error occurred
+A named logical vector of the same length as \code{path} that indicates
+if a file has changed (\code{TRUE} or \code{FALSE}), or if an error occurred (\code{NA})
 }
 \description{
 Reads a file from disk, applies a function on the contents, and optionally

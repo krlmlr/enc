@@ -77,8 +77,8 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 #'   to the file?
 #' @param verbose Should the function show a message with a list of changed
 #'   files?
-#' @return A named logical that indicates if the file has changed, NA if an
-#'   error occurred
+#' @return A named logical vector of the same length as `path` that indicates
+#'   if a file has changed (`TRUE` or `FALSE`), or if an error occurred (`NA`)
 #' @inheritParams base::readLines
 #' @inheritParams read_lines_enc
 #' @inheritParams write_lines_enc
