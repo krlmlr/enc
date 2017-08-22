@@ -93,10 +93,10 @@ transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
     write_back = write_back)
 
   if (verbose) {
-    if (!any(ret)) {
+    if (!any(ret, na.rm = TRUE)) {
       message("No files changed.")
     } else {
-      message("Files changed: ", ellipsis(names(ret)[ret]))
+      message("Files changed: ", ellipsis(names(ret)[which(ret)]))
     }
     invisible(ret)
   } else {
