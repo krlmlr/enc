@@ -1,3 +1,11 @@
+## utf8 0.0-11 (2017-08-22)
+
+- More robust handling if only some files could be transformed in `transform_lines_enc()` (#16, @lorenzwalthert).
+- Fix `write_back` argument to `transform_lines_enc()` (#14, @lorenzwalthert).
+- New `try_read_lines_enc()`.
+- `transform_lines_enc()` now uses `try_read_lines_enc()`, therefore only warns if file is missing.
+
+
 ## utf8 0.0-10 (2017-02-03)
 
 - `transform_lines_enc()` auto-detects EOL delimiter.
