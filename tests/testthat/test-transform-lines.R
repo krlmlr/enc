@@ -7,9 +7,24 @@ all_texts <- list(
   "\u4e2d"
 )
 
+all_texts_length_two <- list(
+  rep("\u00fc", 3),
+  rep("ab", 2),
+  rep("\u4e2d", 2)
+)
+
 add_one <- function(x) c(x, "")
 remove_one <- function(x) x[-length(x)]
-error_if_long <- function(x) { if (length(x) > 1) stop(); add_one(x) }
+error_if_long <- function(x) {
+  len_x <- length(x)
+  if (len_x > 2) {
+    stop()
+  } else if (len_x > 1) {
+    x
+  } else {
+    add_one(x)
+  }
+}
 
 setup_paths <- function(..., text = all_texts) {
   root <- tempfile("utf8")
@@ -34,7 +49,7 @@ test_that("identity transformation works", {
   expect_equal(names(ret), paths)
 })
 
-test_that("errors are caught and returned as NA", {
+test_that("errors are caught and returned as NA if some files are transformerd", {
   paths <- setup_paths()
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_warning(
@@ -45,6 +60,19 @@ test_that("errors are caught and returned as NA", {
   expect_true(is.na(ret[2]))
   expect_true(all(ret[-2]))
 })
+
+test_that("errors are caught and returned as NA if no files are transformerd", {
+  paths <- setup_paths(text = all_texts_length_two)
+  digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+  expect_warning(
+    ret <- transform_lines_enc(paths, error_if_long),
+    "When processing")
+  digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+  expect_equal(digest_before[is.na(ret)], digest_after[is.na(ret)])
+  expect_true(is.na(ret[1]))
+  expect_true(all(!ret[-1]))
+})
+
 
 test_that("forward-reverse transformation works for CRLF", {
   paths <- setup_paths(sep = "\r\n")
@@ -77,4 +105,12 @@ test_that("remove transformation works for GB2312", {
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_true(all(digest_before != digest_after))
   expect_true(all(ret))
+})
+
+test_that("transform missing file", {
+  path <- tempfile("utf8")
+  expect_warning(
+    expect_true(transform_lines_enc(path, add_one)),
+    "cannot open file")
+  expect_warning(transform_lines_enc(path, identity), NA)
 })

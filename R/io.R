@@ -21,6 +21,22 @@ read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
   lines
 }
 
+#' @rdname read_lines_enc
+#' @description `try_read_lines_enc()` is a variant that returns an
+#'   empty character vector on error, with a warning.
+#' @export
+try_read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
+                               skipNul = FALSE) {
+  tryCatch(
+    read_lines_enc(
+      path, file_encoding = file_encoding, ok = ok, skipNul = skipNul),
+    error = function(e) {
+      warning("Cannot read ", path, ": ", conditionMessage(e))
+      character()
+    }
+  )
+}
+
 #' Writes to a text file
 #'
 #' This function is a drop-in replacement for [writeLines()] from disk files.
@@ -61,8 +77,8 @@ get_raw_file_data <- function(text, file_encoding = "UTF-8", sep = "\n") {
 #'   to the file?
 #' @param verbose Should the function show a message with a list of changed
 #'   files?
-#' @return A named logical that indicates if the file has changed, NA if an
-#'   error occurred
+#' @return A named logical vector of the same length as `path` that indicates
+#'   if a file has changed (`TRUE` or `FALSE`), or if an error occurred (`NA`)
 #' @inheritParams base::readLines
 #' @inheritParams read_lines_enc
 #' @inheritParams write_lines_enc
@@ -74,13 +90,13 @@ transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
   ret <- vapply(
     stats::setNames(nm = path), transform_lines_enc_one, logical(1L),
     fun = fun, file_encoding = file_encoding, ok = ok, skipNul = skipNul,
-    write_back = TRUE)
+    write_back = write_back)
 
   if (verbose) {
-    if (!any(ret)) {
+    if (!any(ret, na.rm = TRUE)) {
       message("No files changed.")
     } else {
-      message("Files changed: ", ellipsis(names(ret)[ret]))
+      message("Files changed: ", ellipsis(names(ret)[which(ret)]))
     }
     invisible(ret)
   } else {
@@ -90,7 +106,7 @@ transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
 
 transform_lines_enc_one <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
                                     skipNul = FALSE, write_back = TRUE) {
-  text <- read_lines_enc(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
+  text <- try_read_lines_enc(path, file_encoding = file_encoding, ok = ok, skipNul = skipNul)
   sep <- detect_sep(path)
   tryCatch(
     {

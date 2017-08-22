@@ -2,9 +2,13 @@
 % Please edit documentation in R/io.R
 \name{read_lines_enc}
 \alias{read_lines_enc}
+\alias{try_read_lines_enc}
 \title{Reads from a text file}
 \usage{
 read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
+  skipNul = FALSE)
+
+try_read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
   skipNul = FALSE)
 }
 \arguments{
@@ -25,6 +29,9 @@ read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
 This function is a drop-in replacement for \code{\link[=readLines]{readLines()}} from disk files.
 It always returns text in the UTF-8 encoding and never warns on missing EOL
 on the last line.
+
+\code{try_read_lines_enc()} is a variant that returns an
+empty character vector on error, with a warning.
 }
 \seealso{
 \code{\link[readr:read_lines]{readr::read_lines()}} for a faster alternative.

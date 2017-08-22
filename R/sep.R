@@ -1,5 +1,15 @@
 detect_sep <- function(path) {
-  con <- file(path, "rb")
+  # Eats all errors, but is called only in transform_lines_enc(),
+  # which already warns if file can't be opened
+  con <- tryCatch(
+    file(path, "rb"),
+    error = function(e) {
+      NULL
+    }
+  )
+
+  if (is.null(con)) return(native_eol())
+
   on.exit(close(con), add = TRUE)
 
   repeat {
