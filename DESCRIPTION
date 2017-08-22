@@ -1,7 +1,7 @@
 Package: utf8
 Title: A simple class for storing UTF-8 strings
-Date: 2017-02-03
-Version: 0.0-10
+Date: 2017-08-22
+Version: 0.0-11
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Implements an S3 class for storing UTF-8 strings, based on regular characters.
 Imports:
@@ -16,4 +16,4 @@ LazyData: true
 BugReports: https://github.com/krlmlr/utf8/issues
 URL: https://github.com/krlmlr/utf8
 RoxygenNote: 6.0.1
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace", "pkgapi::api_roclet"))

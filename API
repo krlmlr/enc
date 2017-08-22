@@ -1,0 +1,31 @@
+# API for utf8 package
+
+## Exported functions
+
+all_utf8(x)
+as.utf8(x, ...)
+encoding(x)
+is.utf8(x)
+read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE, skipNul = FALSE)
+to_alien(x, ...)
+to_encoding(x, ...)
+to_latin1(x, ...)
+to_native(x, ...)
+to_utf8(x, ...)
+transform_lines_enc(path, fun, file_encoding = "UTF-8", ok = TRUE, skipNul = FALSE, write_back = TRUE, verbose = interactive())
+try_read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE, skipNul = FALSE)
+utf8(x = character())
+write_lines_enc(text, path, file_encoding = "UTF-8", sep = "\n")
+
+## S3 methods
+
+as.utf8.NULL(x, ...)
+as.utf8.character(x, ...)
+as.utf8.default(x, ...)
+as.utf8.utf8(x, ...)
+to_encoding.NULL(x, ...)
+to_encoding.character(x, ..., converter)
+to_encoding.data.frame(x, ...)
+to_encoding.default(x, ...)
+to_encoding.list(x, ...)
+to_encoding.utf8(x, ..., converter)
