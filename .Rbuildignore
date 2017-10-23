@@ -7,3 +7,4 @@
 ^API$
 ^tic\.R$
 ^cran-comments\.md$
+^_pkgdown.yml$
