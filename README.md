@@ -31,6 +31,8 @@ The utf8 pacakge provides helpers for converting all textual components of an ob
 
 -   [stringi](https://cran.r-project.org/package=stringi) and [stringr](http://stringr.tidyverse.org/) for string manipulation
 
+-   [testthat](http://testthat.r-lib.org/) and [roxygen2](https://cran.r-project.org/package=roxygen2) for package development
+
 Example
 -------
 
