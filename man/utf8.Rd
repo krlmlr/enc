@@ -3,12 +3,12 @@
 \name{utf8}
 \alias{utf8}
 \alias{utf8}
-\alias{is.utf8}
-\alias{as.utf8}
-\alias{as.utf8.default}
-\alias{as.utf8.NULL}
-\alias{as.utf8.character}
-\alias{as.utf8.utf8}
+\alias{is_utf8}
+\alias{as_utf8}
+\alias{as_utf8.default}
+\alias{as_utf8.NULL}
+\alias{as_utf8.character}
+\alias{as_utf8.utf8}
 \alias{as.character.utf8}
 \alias{as.data.frame.utf8}
 \alias{format.utf8}
@@ -17,17 +17,17 @@
 \usage{
 utf8(x = character())
 
-is.utf8(x)
+is_utf8(x)
 
-as.utf8(x, ...)
+as_utf8(x, ...)
 
-\method{as.utf8}{default}(x, ...)
+\method{as_utf8}{default}(x, ...)
 
-\method{as.utf8}{NULL}(x, ...)
+\method{as_utf8}{NULL}(x, ...)
 
-\method{as.utf8}{character}(x, ...)
+\method{as_utf8}{character}(x, ...)
 
-\method{as.utf8}{utf8}(x, ...)
+\method{as_utf8}{utf8}(x, ...)
 
 \method{as.character}{utf8}(x, ...)
 

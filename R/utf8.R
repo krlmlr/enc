@@ -21,41 +21,41 @@ NULL
 #' @param x A vector
 #' @export
 utf8 <- function(x = character()) {
-  as.utf8(x)
+  as_utf8(x)
 }
 
 #' @rdname utf8
 #' @export
-is.utf8 <- function(x) inherits(x, "utf8")
+is_utf8 <- function(x) inherits(x, "utf8")
 
 # Coercion in -------------------------------------------------------------
 
 #' @rdname utf8
 #' @param ... Arguments passed on to further methods.
 #' @export
-as.utf8 <- function(x, ...) UseMethod("as.utf8", x)
+as_utf8 <- function(x, ...) UseMethod("as_utf8", x)
 
 #' @rdname utf8
 #' @export
-as.utf8.default <- function(x, ...) {
-  as.utf8(as.character(x))
+as_utf8.default <- function(x, ...) {
+  as_utf8(as.character(x))
 }
 
 #' @rdname utf8
 #' @export
-as.utf8.NULL <- function(x, ...) {
+as_utf8.NULL <- function(x, ...) {
   NULL
 }
 
 #' @rdname utf8
 #' @export
-as.utf8.character <- function(x, ...) {
-  structure(enc2utf8(x), names = as.utf8(names(x)), class = "utf8")
+as_utf8.character <- function(x, ...) {
+  structure(enc2utf8(x), names = as_utf8(names(x)), class = "utf8")
 }
 
 #' @rdname utf8
 #' @export
-as.utf8.utf8 <- function(x, ...) {
+as_utf8.utf8 <- function(x, ...) {
   x
 }
 
@@ -92,24 +92,24 @@ as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
 
 #' @export
 `[[<-.utf8` <- function(x, i, value) {
-  value <- as.utf8(value)
+  value <- as_utf8(value)
   structure(NextMethod(), class = "utf8")
 }
 
 #' @export
 `[<-.utf8` <- function(x, i, j, ..., value) {
-  value <- as.utf8(value)
+  value <- as_utf8(value)
   structure(NextMethod(), class = "utf8")
 }
 
 #' @export
 c.utf8 <- function(x, ..., recursive = FALSE) {
-  as.utf8(NextMethod())
+  as_utf8(NextMethod())
 }
 
 #' @export
 `names<-.utf8` <- function(x, value) {
-  attr(x, "names") <- as.utf8(value)
+  attr(x, "names") <- as_utf8(value)
   x
 }
 
