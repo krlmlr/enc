@@ -11,6 +11,7 @@ Imports:
 Suggests:
     digest,
     readr,
+    rlang,
     testthat
 License: GPL-3
 Encoding: UTF-8

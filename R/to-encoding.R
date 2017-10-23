@@ -18,10 +18,16 @@
 #'
 #' @inheritParams base::Encoding
 #' @param ... passed on to methods
+#' @seealso
+#' - [rlang::as_utf8_character()] and [iconv()] for different ways to convert
+#'   character vectors to Unicode
+#' - [rlang::mut_latin1_locale()] and references to learn about locales and
+#'   character encodings in R
 #' @export
 #' @examples
 #' to_utf8(letters)
 #' to_utf8(iris)
+#' class(levels(to_utf8(iris)$Species))
 "to_encoding"
 
 #' @rdname to_encoding
