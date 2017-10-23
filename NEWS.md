@@ -1,4 +1,4 @@
-## utf8 0.0-14 (2017-10-23)
+## utf8 0.0-15 (2017-10-23)
 
 - All methods now use snake_case.
 - Use the tic package for testing.
