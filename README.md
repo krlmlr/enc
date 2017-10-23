@@ -10,7 +10,7 @@ The values are stored as a character vector. Special care is taken that updates 
 library(utf8)
 utf8(c("a", "ä"))
 #> [1] "a" "ä"
-as.utf8(1)
+as_utf8(1)
 #> [1] "1"
 
 a <- utf8("ä")
