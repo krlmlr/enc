@@ -2,7 +2,9 @@
 output: github_document
 ---
 
-# utf8 [![Travis-CI Build Status](https://travis-ci.org/krlmlr/utf8.svg?branch=master)](https://travis-ci.org/krlmlr/utf8) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/utf8?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/utf8) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/utf8/master.svg)](https://codecov.io/github/krlmlr/utf8?branch=master) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/utf8)](https://cran.r-project.org/package=utf8)
+# utf8
+
+[![Travis-CI Build Status](https://travis-ci.org/krlmlr/utf8.svg?branch=master)](https://travis-ci.org/krlmlr/utf8) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/utf8?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/utf8) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/utf8/master.svg)](https://codecov.io/github/krlmlr/utf8?branch=master) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/utf8)](https://cran.r-project.org/package=utf8)
 
 Portable tools for UTF-8 character data
 
