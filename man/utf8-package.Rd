@@ -2,9 +2,10 @@
 % Please edit documentation in R/utf8-package.R
 \docType{package}
 \name{utf8-package}
-\title{utf8: A simple class for storing UTF-8 strings}
+\title{utf8: Portable Tools for UTF-8 Character Data}
 \description{
-Implements an S3 class for storing UTF-8 strings, based on regular characters.
+Implements an S3 class for storing UTF-8 strings, based on regular characters vectors.
+Also contains routines to portablly read and write UTF-8 encoded text files, and create character vectors with various encodings.
 }
 \seealso{
 Useful links:
