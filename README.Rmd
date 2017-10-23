@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 ```{r}
 library(utf8)
 utf8(c("a", "ä"))
-as.utf8(1)
+as_utf8(1)
 
 a <- utf8("ä")
 a[2] <- "ö"

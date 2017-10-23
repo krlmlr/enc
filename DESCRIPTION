@@ -1,7 +1,7 @@
 Package: utf8
 Title: Portable Tools for UTF-8 Character Data
 Date: 2017-10-23
-Version: 0.0-14
+Version: 0.0-15
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description:
     Implements an S3 class for storing UTF-8 strings, based on regular characters vectors.
