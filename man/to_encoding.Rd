@@ -50,4 +50,13 @@ UTF-8 on Windows and latin-1 on Linux and OS X.}
 \examples{
 to_utf8(letters)
 to_utf8(iris)
+class(levels(to_utf8(iris)$Species))
+}
+\seealso{
+\itemize{
+\item \code{\link[rlang:as_utf8_character]{rlang::as_utf8_character()}} and \code{\link[=iconv]{iconv()}} for different ways to convert
+character vectors to Unicode
+\item \code{\link[rlang:mut_latin1_locale]{rlang::mut_latin1_locale()}} and references to learn about locales and
+character encodings in R
+}
 }

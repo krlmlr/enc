@@ -1,3 +1,8 @@
+## utf8 0.0-16 (2017-10-23)
+
+- Test up to and including R 3.1.
+
+
 ## utf8 0.0-15 (2017-10-23)
 
 - All methods now use snake_case.

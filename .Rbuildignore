@@ -6,3 +6,4 @@
 ^appveyor\.yml$
 ^API$
 ^tic\.R$
+^cran-comments\.md$
