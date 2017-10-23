@@ -1,4 +1,5 @@
-methods::setOldClass(c("utf8", "character"))
+#' @importFrom methods setOldClass
+setOldClass(c("utf8", "character"))
 
 #' A simple class for storing UTF-8 strings
 #'
