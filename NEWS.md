@@ -1,3 +1,9 @@
+## utf8 0.0-12 (2017-10-23)
+
+- All methods now use snake_case.
+- Use the tic package for testing.
+
+
 ## utf8 0.0-11 (2017-08-22)
 
 - More robust handling if only some files could be transformed in `transform_lines_enc()` (#16, @lorenzwalthert).
