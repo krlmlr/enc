@@ -5,3 +5,4 @@
 ^README-.*\.png$
 ^appveyor\.yml$
 ^API$
+^tic\.R$

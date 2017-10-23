@@ -7,10 +7,10 @@
 #'
 #' \describe{
 #'   \item{`to_utf8`}{converts to UTF-8, using the [utf8()] class
-#'     where possible. Implemented as `to_encoding(x, as.utf8)`}
+#'     where possible. Implemented as `to_encoding(x, as_utf8)`}
 #'   \item{`to_native`}{converts to the native encoding.
 #'     Implemented as `to_encoding(x, enc2native)` on Windows
-#'     and as `to_encoding(x, as.utf8)` on Linux and OS X}
+#'     and as `to_encoding(x, as_utf8)` on Linux and OS X}
 #'   \item{`to_latin1`}{converts to the latin-1 encoding}
 #'   \item{`to_alien`}{converts to the "other" encoding, i.e.,
 #'     UTF-8 on Windows and latin-1 on Linux and OS X.}
@@ -26,12 +26,12 @@
 
 #' @rdname to_encoding
 #' @export
-to_utf8 <- function(x, ...) to_encoding(x, ..., converter = as.utf8)
+to_utf8 <- function(x, ...) to_encoding(x, ..., converter = as_utf8)
 
 iconv_to_native <- if (.Platform$OS.type == "windows") {
   function(x, ...) enc2native(as.character(x))
 } else {
-  function(x, ...) as.utf8(x)
+  function(x, ...) as_utf8(x)
 }
 
 #' @rdname to_encoding
@@ -48,7 +48,7 @@ iconv_to_latin1 <- function(x) {
 to_latin1 <- function(x, ...) to_encoding(x, ..., converter = iconv_to_latin1)
 
 iconv_to_alien <- if (.Platform$OS.type == "windows") {
-  function(x, ...) as.utf8(x)
+  function(x, ...) as_utf8(x)
 } else {
   function(x, ...) iconv_to_latin1(x)
 }
@@ -82,7 +82,7 @@ to_encoding.character <- function(x, ..., converter) {
 
 #' @export
 to_encoding.utf8 <- function(x, ..., converter) {
-  if (identical(converter, as.utf8))
+  if (identical(converter, as_utf8))
     to_encoding.default(x, ..., converter = converter)
   else
     to_encoding.character(x, ..., converter = converter)

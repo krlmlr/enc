@@ -1,9 +1,11 @@
 Package: utf8
-Title: A simple class for storing UTF-8 strings
-Date: 2017-08-22
-Version: 0.0-11
+Title: Portable Tools for UTF-8 Character Data
+Date: 2017-10-23
+Version: 0.0-12
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
-Description: Implements an S3 class for storing UTF-8 strings, based on regular characters.
+Description:
+    Implements an S3 class for storing UTF-8 strings, based on regular characters vectors.
+    Also contains routines to portablly read and write UTF-8 encoded text files, and create character vectors with various encodings.
 Imports:
     methods
 Suggests:
