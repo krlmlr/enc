@@ -1,8 +1,8 @@
 
-utf8
+enc
 ====
 
-[![Travis-CI Build Status](https://travis-ci.org/krlmlr/utf8.svg?branch=master)](https://travis-ci.org/krlmlr/utf8) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/utf8?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/utf8) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/utf8/master.svg)](https://codecov.io/github/krlmlr/utf8?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/utf8)](https://cran.r-project.org/package=utf8)
+[![Travis-CI Build Status](https://travis-ci.org/krlmlr/enc.svg?branch=master)](https://travis-ci.org/krlmlr/enc) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/enc?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/enc) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/enc/master.svg)](https://codecov.io/github/krlmlr/enc?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/enc)](https://cran.r-project.org/package=enc)
 
 Portable tools for UTF-8 character data
 
@@ -27,7 +27,7 @@ When working with text, it is advisable to use UTF-8, because it allows encoding
 
 Because of R's special handling of strings, some care must be taken to make sure that you're actually using the UTF-8 encoding. Many functions in R will hide encoding issues from you, and transparently convert to UTF-8 as necessary. However, some functions (such as reading and writing files) will stubbornly prefer the native encoding.
 
-The utf8 pacakge provides helpers for converting all textual components of an object to UTF-8, and for reading and writing files in UTF-8 (with a LF end-of-line terminator by default). It also defines an S3 class for tagging all-UTF-8 character vectors and ensuring that updates maintain the UTF-8 encoding. Examples for other packages that use UTF-8 by default are:
+The enc pacakge provides helpers for converting all textual components of an object to UTF-8, and for reading and writing files in UTF-8 (with a LF end-of-line terminator by default). It also defines an S3 class for tagging all-UTF-8 character vectors and ensuring that updates maintain the UTF-8 encoding. Examples for other packages that use UTF-8 by default are:
 
 -   [readr](http://readr.tidyverse.org/), [readxl](http://readxl.tidyverse.org/), and [haven](http://haven.tidyverse.org/) for data input and output
 
@@ -39,19 +39,19 @@ Example
 -------
 
 ``` r
-library(utf8)
-utf8(c("a", "ä"))
+library(enc)
+enc(c("a", "ä"))
 #> [1] "a" "ä"
-as_utf8(1)
+as_enc(1)
 #> [1] "1"
 
-a <- utf8("ä")
+a <- enc("ä")
 a[2] <- "ö"
 class(a)
-#> [1] "utf8"
+#> [1] "enc"
 
-data.frame(abc = letters[1:3], utf8 = utf8(letters[1:3]))
-#>   abc utf8
+data.frame(abc = letters[1:3], enc = enc(letters[1:3]))
+#>   abc enc
 #> 1   a    a
 #> 2   b    b
 #> 3   c    c
@@ -61,5 +61,5 @@ Install the package from GitHub:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("krlmlr/utf8")
+devtools::install_github("krlmlr/enc")
 ```

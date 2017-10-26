@@ -1,7 +1,7 @@
 context("write-lines")
 
 test_that("can write text to output file", {
-  root <- tempfile("utf8")
+  root <- tempfile("enc")
   dir.create(root)
   f <- function(...) file.path(root, ...)
   r <- function(...) file.path("output", ...)

@@ -1,4 +1,4 @@
-Package: utf8
+Package: enc
 Title: A simple class for storing UTF-8 strings
 Date: 2016-08-09
 Version: 0.0-8
@@ -11,7 +11,7 @@ Suggests:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-BugReports: https://github.com/krlmlr/utf8/issues
-URL: https://github.com/krlmlr/utf8
+BugReports: https://github.com/krlmlr/enc/issues
+URL: https://github.com/krlmlr/enc
 RoxygenNote: 6.0.0
 Roxygen: list(markdown = TRUE)

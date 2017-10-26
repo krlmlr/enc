@@ -27,7 +27,7 @@ error_if_long <- function(x) {
 }
 
 setup_paths <- function(..., text = all_texts) {
-  root <- tempfile("utf8")
+  root <- tempfile("enc")
   dir.create(root)
   f <- function(...) file.path(root, ...)
   paths <- f(letters[seq_along(text)])
@@ -108,7 +108,7 @@ test_that("remove transformation works for GB2312", {
 })
 
 test_that("transform missing file", {
-  path <- tempfile("utf8")
+  path <- tempfile("enc")
   expect_warning(
     expect_true(transform_lines_enc(path, add_one)),
     "cannot open file")
