@@ -1,3 +1,8 @@
+## enc 0.0-17 (2017-11-10)
+
+- Prepare CRAN release.
+
+
 ## enc 0.0-16 (2017-10-23)
 
 - Test up to and including R 3.1.
