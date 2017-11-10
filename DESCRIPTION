@@ -1,11 +1,15 @@
-Package: utf8
-Title: Portable Tools for UTF-8 Character Data
-Date: 2017-10-23
-Version: 0.0-16
+Package: enc
+Title: Portable Tools for 'UTF-8' Character Data
+Date: 2017-11-10
+Version: 0.0-17
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description:
-    Implements an S3 class for storing UTF-8 strings, based on regular characters vectors.
-    Also contains routines to portablly read and write UTF-8 encoded text files, and create character vectors with various encodings.
+    Implements an S3 class for storing 'UTF-8' strings, based on regular character vectors.
+    Also contains routines to portably read and write 'UTF-8' encoded text files,
+    to convert all strings in an object to 'UTF-8',
+    and to create character vectors with various encodings.
+Depends:
+    R (>= 3.1)
 Imports:
     methods
 Suggests:
@@ -16,7 +20,7 @@ Suggests:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-BugReports: https://github.com/krlmlr/utf8/issues
-URL: https://github.com/krlmlr/utf8
+BugReports: https://github.com/krlmlr/enc/issues
+URL: https://github.com/krlmlr/enc
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace", "pkgapi::api_roclet"))

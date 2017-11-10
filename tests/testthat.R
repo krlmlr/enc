@@ -1,4 +1,4 @@
 library(testthat)
-library(utf8)
+library(enc)
 
-test_check("utf8")
+test_check("enc")
