@@ -9,6 +9,8 @@
 
 * This is a new release.
 
+* The wording of "encodings" and "portably" seems correct.
+
 ## Reverse dependencies
 
 This is a new release, so there are no reverse dependencies.

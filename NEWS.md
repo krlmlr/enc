@@ -1,3 +1,9 @@
+## enc 0.0-18 (2017-11-12)
+
+- `read_lines_enc()` returns objects of class `utf8`.
+- Add `type_sum.utf8()` without strong dependency on pillar.
+
+
 ## enc 0.0-17 (2017-11-10)
 
 - Prepare CRAN release.

@@ -18,7 +18,7 @@ read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
   lines <- readLines(
     con, warn = FALSE, n = n, ok = ok, skipNul = skipNul, encoding = "UTF-8")
   Encoding(lines) <- "UTF-8"
-  lines
+  as_utf8(lines)
 }
 
 #' @rdname read_lines_enc
@@ -110,8 +110,8 @@ transform_lines_enc_one <- function(path, fun, file_encoding = "UTF-8", ok = TRU
   sep <- detect_sep(path)
   tryCatch(
     {
-      new_text <- fun(text)
-      if (!isTRUE(identical(text, new_text))) {
+      new_text <- as.character(fun(text))
+      if (!isTRUE(identical(unclass(text), unclass(new_text)))) {
         if (write_back) {
           write_lines_enc(new_text, path, file_encoding = file_encoding, sep = sep)
         }

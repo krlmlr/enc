@@ -129,3 +129,7 @@ print.utf8 <- function(x, ...) {
   print(as.character(x), ...)
   invisible(x)
 }
+
+type_sum.utf8 <- function(x) {
+  "utf8"
+}
