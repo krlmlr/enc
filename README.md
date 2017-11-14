@@ -1,8 +1,8 @@
 
 enc
-====
+===
 
-[![Travis-CI Build Status](https://travis-ci.org/krlmlr/enc.svg?branch=master)](https://travis-ci.org/krlmlr/enc) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/enc?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/enc) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/enc/master.svg)](https://codecov.io/github/krlmlr/enc?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/enc)](https://cran.r-project.org/package=enc)
+[![Travis-CI Build Status](https://travis-ci.org/krlmlr/enc.svg?branch=master)](https://travis-ci.org/krlmlr/enc) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/enc?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/enc) [![codecov](https://codecov.io/gh/krlmlr/enc/branch/master/graph/badge.svg)](https://codecov.io/gh/krlmlr/enc) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/enc)](https://cran.r-project.org/package=enc)
 
 Portable tools for UTF-8 character data
 
@@ -40,18 +40,18 @@ Example
 
 ``` r
 library(enc)
-enc(c("a", "ä"))
+utf8(c("a", "ä"))
 #> [1] "a" "ä"
-as_enc(1)
+as_utf8(1)
 #> [1] "1"
 
-a <- enc("ä")
+a <- utf8("ä")
 a[2] <- "ö"
 class(a)
-#> [1] "enc"
+#> [1] "utf8"
 
-data.frame(abc = letters[1:3], enc = enc(letters[1:3]))
-#>   abc enc
+data.frame(abc = letters[1:3], utf8 = utf8(letters[1:3]))
+#>   abc utf8
 #> 1   a    a
 #> 2   b    b
 #> 3   c    c
