@@ -4,7 +4,8 @@ output: github_document
 
 # enc
 
-[![Travis-CI Build Status](https://travis-ci.org/krlmlr/enc.svg?branch=master)](https://travis-ci.org/krlmlr/enc) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/enc?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/enc) [![Coverage Status](https://img.shields.io/codecov/c/github/krlmlr/enc/master.svg)](https://codecov.io/github/krlmlr/enc?branch=master) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/enc)](https://cran.r-project.org/package=enc)
+[![Travis-CI Build Status](https://travis-ci.org/krlmlr/enc.svg?branch=master)](https://travis-ci.org/krlmlr/enc) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/enc?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/enc) [![codecov](https://codecov.io/gh/krlmlr/enc/branch/master/graph/badge.svg)](https://codecov.io/gh/krlmlr/enc)
+ [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/enc)](https://cran.r-project.org/package=enc)
 
 Portable tools for UTF-8 character data
 
