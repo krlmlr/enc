@@ -14,6 +14,7 @@ Imports:
     methods
 Suggests:
     digest,
+    pillar,
     readr,
     rlang,
     testthat
