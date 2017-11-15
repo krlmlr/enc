@@ -1,4 +1,4 @@
-Same-version update with "R Core Team" added to contributors.
+Recreated boilerplate code using tools::package_native_routine_registration_skeleton(), do we still need a copyright entry?
 
 ## Test environments
 
