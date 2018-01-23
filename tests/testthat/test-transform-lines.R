@@ -88,6 +88,20 @@ test_that("forward-reverse transformation works for CRLF", {
   expect_true(all(ret))
 })
 
+test_that("forward-reverse transformation works for latin1", {
+  paths <- setup_paths(file_encoding = "latin1", text = all_texts[3])
+  digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+  ret <- transform_lines_enc(paths, add_one)
+  expect_message(
+    ret <- transform_lines_enc(paths, remove_one, verbose = TRUE),
+    paste0("Files changed: ", paths[ret][[1]]),
+    fixed = TRUE
+  )
+  digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+  expect_equal(digest_before, digest_after)
+  expect_true(all(ret))
+})
+
 test_that("remove transformation works for latin1", {
   paths <- setup_paths(file_encoding = "latin1", text = all_texts[-4])
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
