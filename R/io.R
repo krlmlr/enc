@@ -110,7 +110,7 @@ transform_lines_enc_one <- function(path, fun, file_encoding = "UTF-8", ok = TRU
   sep <- detect_sep(path)
   tryCatch(
     {
-      new_text <- as.character(fun(text))
+      new_text <- to_utf8(fun(text))
       if (!isTRUE(identical(unclass(text), unclass(new_text)))) {
         if (write_back) {
           write_lines_enc(new_text, path, file_encoding = file_encoding, sep = sep)
