@@ -91,11 +91,10 @@ test_that("forward-reverse transformation works for CRLF", {
 })
 
 test_that("forward-reverse transformation works for latin1", {
-  # c.f. rlang::mut_latin1_locale()
-  locale <- if (.Platform$OS.type == "windows") "English_United States.1252" else "en_US.ISO8859-1"
+  skip_if(.Platform$OS.type != "windows")
 
   withr::with_locale(
-    c(LC_CTYPE = locale),
+    c(LC_CTYPE = "English_United States.1252"),
     {
       paths <- setup_paths(text = all_texts[3])
       digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
