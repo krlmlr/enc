@@ -17,7 +17,8 @@ Suggests:
     pillar,
     readr,
     rlang,
-    testthat
+    testthat,
+    withr
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

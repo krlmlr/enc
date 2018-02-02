@@ -14,7 +14,9 @@ all_texts_length_two <- list(
 )
 
 add_one <- function(x) c(x, "")
+add_one_native <- function(x) to_native(add_one(x))
 remove_one <- function(x) x[-length(x)]
+remove_one_native <- function(x) to_native(remove_one(x))
 error_if_long <- function(x) {
   len_x <- length(x)
   if (len_x > 2) {
@@ -86,6 +88,27 @@ test_that("forward-reverse transformation works for CRLF", {
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before, digest_after)
   expect_true(all(ret))
+})
+
+test_that("forward-reverse transformation works for latin1", {
+  skip_if(.Platform$OS.type != "windows")
+
+  withr::with_locale(
+    c(LC_CTYPE = "English_United States.1252"),
+    {
+      paths <- setup_paths(text = all_texts[3])
+      digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+      ret <- transform_lines_enc(paths, add_one_native)
+      expect_message(
+        ret <- transform_lines_enc(paths, remove_one_native, verbose = TRUE),
+        paste0("Files changed: ", paths[ret][[1]]),
+        fixed = TRUE
+      )
+      digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
+      expect_equal(digest_before, digest_after)
+      expect_true(all(ret))
+    }
+  )
 })
 
 test_that("remove transformation works for latin1", {
