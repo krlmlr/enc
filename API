@@ -17,7 +17,20 @@ try_read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE, skipNul = 
 utf8(x = character())
 write_lines_enc(text, path, file_encoding = "UTF-8", sep = "\n")
 
-## S3 methods
+## Own S3 methods
+
+as_utf8.NULL(x, ...)
+as_utf8.character(x, ...)
+as_utf8.default(x, ...)
+as_utf8.utf8(x, ...)
+to_encoding.NULL(x, ...)
+to_encoding.character(x, ..., converter)
+to_encoding.data.frame(x, ...)
+to_encoding.default(x, ...)
+to_encoding.list(x, ...)
+to_encoding.utf8(x, ..., converter)
+
+## Foreign S3 methods
 
 [.utf8(x, ...)
 [<-.utf8(x, i, j, ..., value)
@@ -25,17 +38,7 @@ write_lines_enc(text, path, file_encoding = "UTF-8", sep = "\n")
 [[<-.utf8(x, i, value)
 as.character.utf8(x, ...)
 as.data.frame.utf8(x, row.names = NULL, optional = FALSE, ..., nm = paste(deparse(substitute(x), width.cutoff = 500L), collapse = " "))
-as_utf8.NULL(x, ...)
-as_utf8.character(x, ...)
-as_utf8.default(x, ...)
-as_utf8.utf8(x, ...)
 c.utf8(x, ..., recursive = FALSE)
 format.utf8(x, ...)
 names<-.utf8(x, value)
 print.utf8(x, ...)
-to_encoding.NULL(x, ...)
-to_encoding.character(x, ..., converter)
-to_encoding.data.frame(x, ...)
-to_encoding.default(x, ...)
-to_encoding.list(x, ...)
-to_encoding.utf8(x, ..., converter)
