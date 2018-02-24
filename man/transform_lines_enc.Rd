@@ -39,3 +39,4 @@ contains at least one, otherwise \code{\link[=native_eol]{native_eol()}} is used
 Other file functions: \code{\link{read_lines_enc}},
   \code{\link{write_lines_enc}}
 }
+\concept{file functions}

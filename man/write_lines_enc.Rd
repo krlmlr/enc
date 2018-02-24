@@ -27,3 +27,4 @@ UTF-8 encoding with Unix line separators.
 Other file functions: \code{\link{read_lines_enc}},
   \code{\link{transform_lines_enc}}
 }
+\concept{file functions}
