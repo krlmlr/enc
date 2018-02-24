@@ -27,7 +27,7 @@ When working with text, it is advisable to use UTF-8, because it allows encoding
 
 Because of R's special handling of strings, some care must be taken to make sure that you're actually using the UTF-8 encoding. Many functions in R will hide encoding issues from you, and transparently convert to UTF-8 as necessary. However, some functions (such as reading and writing files) will stubbornly prefer the native encoding.
 
-The enc pacakge provides helpers for converting all textual components of an object to UTF-8, and for reading and writing files in UTF-8 (with a LF end-of-line terminator by default). It also defines an S3 class for tagging all-UTF-8 character vectors and ensuring that updates maintain the UTF-8 encoding. Examples for other packages that use UTF-8 by default are:
+The enc package provides helpers for converting all textual components of an object to UTF-8, and for reading and writing files in UTF-8 (with a LF end-of-line terminator by default). It also defines an S3 class for tagging all-UTF-8 character vectors and ensuring that updates maintain the UTF-8 encoding. Examples for other packages that use UTF-8 by default are:
 
 -   [readr](http://readr.tidyverse.org/), [readxl](http://readxl.tidyverse.org/), and [haven](http://haven.tidyverse.org/) for data input and output
 
