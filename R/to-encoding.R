@@ -21,8 +21,6 @@
 #' @seealso
 #' - [rlang::as_utf8_character()] and [iconv()] for different ways to convert
 #'   character vectors to Unicode
-#' - [rlang::mut_latin1_locale()] and references to learn about locales and
-#'   character encodings in R
 #' @export
 #' @examples
 #' to_utf8(letters)

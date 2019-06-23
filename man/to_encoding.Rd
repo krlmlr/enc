@@ -56,7 +56,5 @@ class(levels(to_utf8(iris)$Species))
 \itemize{
 \item \code{\link[rlang:as_utf8_character]{rlang::as_utf8_character()}} and \code{\link[=iconv]{iconv()}} for different ways to convert
 character vectors to Unicode
-\item \code{\link[rlang:mut_latin1_locale]{rlang::mut_latin1_locale()}} and references to learn about locales and
-character encodings in R
 }
 }
