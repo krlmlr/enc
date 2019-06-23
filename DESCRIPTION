@@ -24,5 +24,5 @@ Encoding: UTF-8
 LazyData: true
 BugReports: https://github.com/krlmlr/enc/issues
 URL: https://github.com/krlmlr/enc
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace", "pkgapi::api_roclet"))
