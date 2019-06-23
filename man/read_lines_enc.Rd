@@ -39,3 +39,4 @@ empty character vector on error, with a warning.
 Other file functions: \code{\link{transform_lines_enc}},
   \code{\link{write_lines_enc}}
 }
+\concept{file functions}

@@ -1,15 +1,15 @@
-Recreated boilerplate code using tools::package_native_routine_registration_skeleton(), do we still need a copyright entry?
+Minor bugfix release.
 
 ## Test environments
 
-* local Ubuntu 17.04 install, R 3.4.2
-* ubuntu 12.04 (on travis-ci), R-devel, R-release, R-oldrel, R 3.2 and R 3.1
-* win-builder (devel and release)
+* local Ubuntu 17.04 install, R 3.4.3
+* ubuntu 14.04 (on travis-ci), R-devel, R-release, R-oldrel, R 3.2 and R 3.1
+* win-builder (devel, release, and oldrel)
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+OK
 
-* This is a new release.
+## Downstream dependency
 
-* The wording of "encodings" and "portably" seems correct.
+styler works with the submitted version of enc.

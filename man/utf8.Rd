@@ -2,7 +2,6 @@
 % Please edit documentation in R/utf8.R
 \name{utf8}
 \alias{utf8}
-\alias{utf8}
 \alias{is_utf8}
 \alias{as_utf8}
 \alias{as_utf8.default}
