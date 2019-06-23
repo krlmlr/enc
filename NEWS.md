@@ -1,3 +1,8 @@
+# enc 0.2.0.9000
+
+- Same as previous version.
+
+
 # enc 0.2.0
 
 - Fix transformation of non-ASCII text on Windows (#18, @yutannihilation).
