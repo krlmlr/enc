@@ -1,0 +1,36 @@
+template:
+  params:
+    bootswatch: flatly # https://bootswatch.com/flatly/
+
+home:
+  strip_header: true
+  links:
+  - text: Learn more
+    href: http://r4ds.had.co.nz/tibbles.html
+
+reference:
+- title: I/O
+  contents:
+  - ends_with("_lines_enc")
+
+- title: S3 class
+  contents:
+  - ends_with("utf8")
+  - -all_utf8
+
+- title: Inspection and conversion
+  contents:
+  - encoding
+  - all_utf8
+  - starts_with("to")
+
+- title: Package
+  contents:
+  - "enc-package"
+
+development:
+  mode: auto
+
+authors:
+  Kirill Müller:
+    href: http://krlmlr.info
