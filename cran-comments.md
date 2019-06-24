@@ -1,15 +1,15 @@
-Minor bugfix release.
+Minor release to address CRAN failures and upstream changes.
 
 ## Test environments
 
-* local Ubuntu 17.04 install, R 3.4.3
-* ubuntu 14.04 (on travis-ci), R-devel, R-release, R-oldrel, R 3.2 and R 3.1
+* local Ubuntu 18.04 install, R 3.6.0
+* ubuntu 16.04 (on travis-ci), R-devel, R-release, R-oldrel
 * win-builder (devel, release, and oldrel)
 
 ## R CMD check results
 
-OK
+OK (NOTE on win-builder regarding TLS protocol version: https://win-builder.r-project.org/9JIR9W601n41/00check.log, can't replicate)
 
 ## Downstream dependency
 
-styler works with the submitted version of enc.
+roxygen2md works with the submitted version of enc.
