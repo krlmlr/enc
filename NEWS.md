@@ -1,3 +1,8 @@
+# enc 0.2.1.9000
+
+- Same as previous version.
+
+
 # enc 0.2.1
 
 - Use `LEVELS` macro instead of low-level access of opaque structure (#23).
