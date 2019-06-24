@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">enc</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.0.9001</span>
       </span>
     </div>
 
@@ -103,6 +103,17 @@
       <small>Source: <a href='https://github.com/krlmlr/enc/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="enc-0-2-0-9001" class="section level1">
+<h1 class="page-header">
+<a href="#enc-0-2-0-9001" class="anchor"></a>enc 0.2.0.9001<small> Unreleased </small>
+</h1>
+<ul>
+<li>Use <code>LEVELS</code> macro instead of low-level access of opaque structure (<a href='https://github.com/krlmlr/enc/issues/23'>#23</a>).</li>
+<li>Fix <code><a href="../reference/write_lines_enc.html">write_lines_enc()</a></code> on Windows systems: input is always transformed to UTF-8 before writing (<a href='https://github.com/krlmlr/enc/issues/21'>#21</a>).</li>
+<li>Fix test on systems with latin-1 encoding.</li>
+<li>Remove documentation link absent in current rlang.</li>
+</ul>
+</div>
     <div id="enc-0-2-0-9000" class="section level1">
 <h1 class="page-header">
 <a href="#enc-0-2-0-9000" class="anchor"></a>enc 0.2.0.9000<small> Unreleased </small>
@@ -144,6 +155,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#enc-0-2-0-9001">0.2.0.9001</a></li>
         <li><a href="#enc-0-2-0-9000">0.2.0.9000</a></li>
         <li><a href="#enc-0-2-0">0.2.0</a></li>
       </ul>
