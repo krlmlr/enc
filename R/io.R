@@ -50,7 +50,7 @@ try_read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE
 #' @inheritParams read_lines_enc
 #' @export
 write_lines_enc <- function(text, path, file_encoding = "UTF-8", sep = "\n") {
-  raw_data <- get_raw_file_data(as.character(text), file_encoding, sep)
+  raw_data <- get_raw_file_data(to_utf8(as.character(text)), file_encoding, sep)
   writeBin(raw_data, path)
 }
 
