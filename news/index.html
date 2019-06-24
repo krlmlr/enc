@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">enc</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -103,12 +103,15 @@
       <small>Source: <a href='https://github.com/krlmlr/enc/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="enc-0-2-0-9000" class="section level1">
+    <div id="enc-0-2-1" class="section level1">
 <h1 class="page-header">
-<a href="#enc-0-2-0-9000" class="anchor"></a>enc 0.2.0.9000<small> Unreleased </small>
+<a href="#enc-0-2-1" class="anchor"></a>enc 0.2.1<small> Unreleased </small>
 </h1>
 <ul>
-<li>Same as previous version.</li>
+<li>Use <code>LEVELS</code> macro instead of low-level access of opaque structure (<a href='https://github.com/krlmlr/enc/issues/23'>#23</a>).</li>
+<li>Fix <code><a href="../reference/write_lines_enc.html">write_lines_enc()</a></code> on Windows systems: input is always transformed to UTF-8 before writing (<a href='https://github.com/krlmlr/enc/issues/21'>#21</a>).</li>
+<li>Fix test on systems with latin-1 encoding.</li>
+<li>Remove documentation link absent in current rlang.</li>
 </ul>
 </div>
     <div id="enc-0-2-0" class="section level1">
@@ -118,9 +121,11 @@
 <ul>
 <li>Fix transformation of non-ASCII text on Windows (<a href='https://github.com/krlmlr/enc/issues/18'>#18</a>, <a href='https://github.com/yutannihilation'>@yutannihilation</a>).</li>
 </ul>
-<div id="enc-0-1-2017-11-12" class="section level2">
-<h2 class="hasAnchor">
-<a href="#enc-0-1-2017-11-12" class="anchor"></a>enc 0.1 (2017-11-12)</h2>
+</div>
+    <div id="enc-0-1" class="section level1">
+<h1 class="page-header">
+<a href="#enc-0-1" class="anchor"></a>enc 0.1<small> 2017-11-15 </small>
+</h1>
 <p>Initial release.</p>
 <ul>
 <li>
@@ -137,15 +142,15 @@
 <code><a href="../reference/transform_lines_enc.html">transform_lines_enc()</a></code>, with robust handling if only some files could be transformed in <code><a href="../reference/transform_lines_enc.html">transform_lines_enc()</a></code>. Uses <code><a href="../reference/read_lines_enc.html">try_read_lines_enc()</a></code>, therefore only warns if file is missing. Auto-detects and maintains EOL delimiter.</li>
 </ul>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#enc-0-2-0-9000">0.2.0.9000</a></li>
+        <li><a href="#enc-0-2-1">0.2.1</a></li>
         <li><a href="#enc-0-2-0">0.2.0</a></li>
+        <li><a href="#enc-0-1">0.1</a></li>
       </ul>
     </div>
   </div>
@@ -154,7 +159,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Kirill Müller.</p>
+  <p>Developed by <a href='http://krlmlr.info'>Kirill Müller</a>.</p>
 </div>
 
 <div class="pkgdown">
