@@ -1,3 +1,11 @@
+# enc 0.2.0.9001
+
+- Use `LEVELS` macro instead of low-level access of opaque structure (#23).
+- Fix `write_lines_enc()` on Windows systems: input is always transformed to UTF-8 before writing (#21).
+- Fix test on systems with latin-1 encoding.
+- Remove documentation link absent in current rlang.
+
+
 # enc 0.2.0.9000
 
 - Same as previous version.
