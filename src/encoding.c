@@ -11,11 +11,11 @@
 #define CACHED_MASK (1<<5)
 #define ASCII_MASK (1<<6)
 
-# define IS_BYTES(x) ((x)->sxpinfo.gp & BYTES_MASK)
-# define IS_LATIN1(x) ((x)->sxpinfo.gp & LATIN1_MASK)
-# define IS_ASCII(x) ((x)->sxpinfo.gp & ASCII_MASK)
-# define IS_UTF8(x) ((x)->sxpinfo.gp & UTF8_MASK)
-# define ENC_KNOWN(x) ((x)->sxpinfo.gp & (LATIN1_MASK | UTF8_MASK))
+#define IS_BYTES(x) (LEVELS(x) & BYTES_MASK)
+#define IS_LATIN1(x) (LEVELS(x) & LATIN1_MASK)
+#define IS_ASCII(x) (LEVELS(x) & ASCII_MASK)
+#define IS_UTF8(x) (LEVELS(x) & UTF8_MASK)
+#define ENC_KNOWN(x) (LEVELS(x) & (LATIN1_MASK | UTF8_MASK))
 
 SEXP encoding(SEXP x)
 {
