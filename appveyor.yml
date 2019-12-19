@@ -30,6 +30,19 @@ on_finish: Rscript -e "tic::after_script()"
 
 # Adapt as necessary starting from here
 
+environment:
+  global:
+    PKGTYPE: binary
+
+  matrix:
+  - R_VERSION: devel
+    GCC_PATH: mingw_64
+    R_ARCH: x64
+
+  - R_VERSION: patched
+    GCC_PATH: mingw
+    R_ARCH: x32
+
 #on_failure:
 #  - 7z a failure.zip *.Rcheck\*
 #  - appveyor PushArtifact failure.zip
