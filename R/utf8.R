@@ -73,7 +73,11 @@ as.character.utf8 <- function(x, ...) {
 #' @inheritParams base::as.data.frame
 #' @param nm Name of column in new data frame
 #' @export
-as.data.frame.utf8 <- forward_to(as.data.frame.difftime)
+as.data.frame.utf8 <- function(x, row.names = NULL, optional = FALSE, ...,
+                               nm = paste(deparse(substitute(x), width.cutoff = 500L), collapse = " ")) {
+
+  as.data.frame.difftime(x, row.names = row.names, optional = optional, ..., nm = nm)
+}
 
 
 # Subsetting --------------------------------------------------------------
