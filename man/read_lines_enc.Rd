@@ -5,11 +5,21 @@
 \alias{try_read_lines_enc}
 \title{Reads from a text file}
 \usage{
-read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
-  skipNul = FALSE)
+read_lines_enc(
+  path,
+  file_encoding = "UTF-8",
+  n = -1L,
+  ok = TRUE,
+  skipNul = FALSE
+)
 
-try_read_lines_enc(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
-  skipNul = FALSE)
+try_read_lines_enc(
+  path,
+  file_encoding = "UTF-8",
+  n = -1L,
+  ok = TRUE,
+  skipNul = FALSE
+)
 }
 \arguments{
 \item{path}{Path to the file}
@@ -36,7 +46,8 @@ empty character vector on error, with a warning.
 \seealso{
 \code{\link[readr:read_lines]{readr::read_lines()}} for a faster alternative.
 
-Other file functions: \code{\link{transform_lines_enc}},
-  \code{\link{write_lines_enc}}
+Other file functions: 
+\code{\link{transform_lines_enc}()},
+\code{\link{write_lines_enc}()}
 }
 \concept{file functions}

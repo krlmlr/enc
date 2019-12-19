@@ -4,8 +4,15 @@
 \alias{transform_lines_enc}
 \title{Transform a text file}
 \usage{
-transform_lines_enc(path, fun, file_encoding = "UTF-8", ok = TRUE,
-  skipNul = FALSE, write_back = TRUE, verbose = interactive())
+transform_lines_enc(
+  path,
+  fun,
+  file_encoding = "UTF-8",
+  ok = TRUE,
+  skipNul = FALSE,
+  write_back = TRUE,
+  verbose = interactive()
+)
 }
 \arguments{
 \item{path}{A vector of file paths.}
@@ -36,7 +43,8 @@ The line ending separator of the input file is used if it can be read and
 contains at least one, otherwise \code{\link[=native_eol]{native_eol()}} is used.
 }
 \seealso{
-Other file functions: \code{\link{read_lines_enc}},
-  \code{\link{write_lines_enc}}
+Other file functions: 
+\code{\link{read_lines_enc}()},
+\code{\link{write_lines_enc}()}
 }
 \concept{file functions}
