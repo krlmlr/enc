@@ -8,8 +8,4 @@ Minor release to address CRAN failures and upstream changes.
 
 ## R CMD check results
 
-OK (NOTE on win-builder regarding TLS protocol version: https://win-builder.r-project.org/9JIR9W601n41/00check.log, can't replicate)
-
-## Downstream dependency
-
-roxygen2md works with the submitted version of enc.
+OK

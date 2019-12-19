@@ -1,16 +1,6 @@
 # enc 0.2.2
 
-- Internal changes only.
-
-
-# enc 0.2.1.9001
-
 - Remove clever code that breaks enc on R-devel.
-
-
-# enc 0.2.1.9000
-
-- Same as previous version.
 
 
 # enc 0.2.1
