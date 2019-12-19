@@ -40,8 +40,8 @@ environment:
     R_ARCH: x64
 
   - R_VERSION: patched
-    GCC_PATH: mingw
-    R_ARCH: x32
+    GCC_PATH: mingw_64
+    R_ARCH: x64
 
 #on_failure:
 #  - 7z a failure.zip *.Rcheck\*
