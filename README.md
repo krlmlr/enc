@@ -10,7 +10,7 @@ Status](https://travis-ci.org/krlmlr/enc.svg?branch=master)](https://travis-ci.o
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/enc?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/enc)
 [![codecov](https://codecov.io/gh/krlmlr/enc/branch/master/graph/badge.svg)](https://codecov.io/gh/krlmlr/enc)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/enc)](https://cran.r-project.org/package=enc)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/enc)](https://cran.r-project.org/package=enc)
 <!-- badges: end -->
 
 Portable tools for UTF-8 character data
@@ -59,14 +59,14 @@ tagging all-UTF-8 character vectors and ensuring that updates maintain
 the UTF-8 encoding. Examples for other packages that use UTF-8 by
 default are:
 
-  - [readr](http://readr.tidyverse.org/),
-    [readxl](http://readxl.tidyverse.org/), and
-    [haven](http://haven.tidyverse.org/) for data input and output
+  - [readr](https://readr.tidyverse.org/),
+    [readxl](https://readxl.tidyverse.org/), and
+    [haven](https://haven.tidyverse.org/) for data input and output
 
   - [stringi](https://cran.r-project.org/package=stringi) and
-    [stringr](http://stringr.tidyverse.org/) for string manipulation
+    [stringr](https://stringr.tidyverse.org/) for string manipulation
 
-  - [testthat](http://testthat.r-lib.org/) and
+  - [testthat](https://testthat.r-lib.org/) and
     [roxygen2](https://cran.r-project.org/package=roxygen2) for package
     development
 
