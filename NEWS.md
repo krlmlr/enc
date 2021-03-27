@@ -1,3 +1,10 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# enc 0.2.2.9000
+
+- Same as previous version.
+
+
 # enc 0.2.2
 
 - Remove clever code that breaks enc on R-devel.
