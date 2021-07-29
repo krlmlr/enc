@@ -77,7 +77,7 @@
 <p>Portable tools for UTF-8 character data</p>
 <div id="r-and-character-encoding" class="section level2">
 <h2 class="hasAnchor">
-<a href="#r-and-character-encoding" class="anchor"></a>R and character encoding</h2>
+<a href="#r-and-character-encoding" class="anchor" aria-hidden="true"></a>R and character encoding</h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Character_encoding" class="external-link">character encoding</a> of determines the translation of the letters, digits, or other codepoints (atomic components of a text) into a sequence of bytes. A byte sequence may translate into valid text in one character encoding, but give nonsense in other character encodings.</p>
 <p>For historic reasons, R can store strings in different ways:</p>
 <ol style="list-style-type: decimal">
@@ -90,7 +90,7 @@
 </div>
 <div id="why-utf-8" class="section level2">
 <h2 class="hasAnchor">
-<a href="#why-utf-8" class="anchor"></a>Why UTF-8?</h2>
+<a href="#why-utf-8" class="anchor" aria-hidden="true"></a>Why UTF-8?</h2>
 <p>When working with text, it is advisable to use UTF-8, because it allows encoding virtually any text, even in foreign languages that contain symbols that cannot be represented in your system’s native encoding. The UTF-8 encoding possesses several nice technical properties, and is by far the predominant encoding on the Web. Standardization on a “universal” encoding faciliates data exchange.</p>
 <p>Because of R’s special handling of strings, some care must be taken to make sure that you’re actually using the UTF-8 encoding. Many functions in R will hide encoding issues from you, and transparently convert to UTF-8 as necessary. However, some functions (such as reading and writing files) will stubbornly prefer the native encoding.</p>
 <p>The enc package provides helpers for converting all textual components of an object to UTF-8, and for reading and writing files in UTF-8 (with a LF end-of-line terminator by default). It also defines an S3 class for tagging all-UTF-8 character vectors and ensuring that updates maintain the UTF-8 encoding. Examples for other packages that use UTF-8 by default are:</p>
@@ -102,7 +102,7 @@
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<a href="#example" class="anchor" aria-hidden="true"></a>Example</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/krlmlr/enc" class="external-link">enc</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/utf8.html">utf8</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"ä"</span><span class="op">)</span><span class="op">)</span>
