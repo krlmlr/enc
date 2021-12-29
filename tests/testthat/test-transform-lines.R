@@ -55,7 +55,8 @@ test_that("errors are caught and returned as NA if some files are transformerd",
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_warning(
     ret <- transform_lines_enc(paths, error_if_long),
-    "When processing")
+    "When processing"
+  )
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before[is.na(ret)], digest_after[is.na(ret)])
   expect_true(is.na(ret[2]))
@@ -67,7 +68,8 @@ test_that("errors are caught and returned as NA if no files are transformerd", {
   digest_before <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_warning(
     ret <- transform_lines_enc(paths, error_if_long),
-    "When processing")
+    "When processing"
+  )
   digest_after <- vapply(paths, function(x) digest::digest(file = x), character(1L))
   expect_equal(digest_before[is.na(ret)], digest_after[is.na(ret)])
   expect_true(is.na(ret[1]))

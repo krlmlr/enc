@@ -12,7 +12,8 @@ test_that("ASCII encoding detected works", {
       iconv("\u00e4", to = "latin1"),
       as_unknown("\u00e4")
     )),
-    c("ASCII", "UTF-8", "latin1", "unknown"))
+    c("ASCII", "UTF-8", "latin1", "unknown")
+  )
 })
 
 test_that("encoding() accepts only character vectors", {
