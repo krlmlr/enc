@@ -25,4 +25,4 @@ LazyData: true
 BugReports: https://github.com/krlmlr/enc/issues
 URL: https://github.com/krlmlr/enc
 RoxygenNote: 7.0.2
-Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace", "pkgapi::api_roclet"))
+Roxygen: list(markdown = TRUE)
