@@ -25,9 +25,11 @@ runs:
     - name: Show cache
       if: ${{ steps.check.outputs.scope }}
       run: |
-        ls -l ~/.cache/R/R.cache
-        ls -l ~/.cache/R/R.cache/styler
-        gdu -s --inodes ~/.cache/R/R.cache/styler/* || du -s --inodes ~/.cache/R/R.cache/styler/*
+        if [ -d ~/.cache/R/R.cache/styler ]; then
+          ls -l ~/.cache/R/R.cache
+          ls -l ~/.cache/R/R.cache/styler
+          gdu -s --inodes ~/.cache/R/R.cache/styler/* || du -s --inodes ~/.cache/R/R.cache/styler/*
+        fi
       shell: bash
 
     - name: Imprint run ID
