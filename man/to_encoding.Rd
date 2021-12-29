@@ -9,7 +9,9 @@
 \alias{to_alien}
 \alias{to_encoding.character}
 \title{Deep conversion to an encoding}
-\format{An object of class \code{function} of length 1.}
+\format{
+An object of class \code{function} of length 1.
+}
 \usage{
 to_encoding
 
