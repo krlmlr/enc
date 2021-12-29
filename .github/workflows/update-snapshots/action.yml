@@ -22,7 +22,14 @@ runs:
         }
       shell: Rscript {0}
 
+    - name: Check changed files
+      id: check-changed
+      run: |
+        echo "::set-output name=changed::$(git status --porcelain -- tests/testthat/_snaps)"
+      shell: bash
+
     - name: Derive branch name
+      if: ${{ steps.check-changed.outputs.changed }}
       id: matrix-desc
       run: |
         config=$(echo '${{ toJSON(matrix) }}' | jq -c .)
@@ -31,6 +38,7 @@ runs:
       shell: bash
 
     - name: Create pull request
+      if: ${{ steps.check-changed.outputs.changed }}
       id: cpr
       uses: peter-evans/create-pull-request@v3
       with:
