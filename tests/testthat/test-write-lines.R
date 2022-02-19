@@ -1,3 +1,18 @@
+test_that("sanity check: input files", {
+  r <- function(...) file.path("output", ...)
+  expect_snapshot({
+    digest::digest(r("ascii.txt"))
+    digest::digest(r("ascii-crlf.txt"))
+    digest::digest(r("latin1-utf8.txt"))
+    digest::digest(r("latin1-utf8-crlf.txt"))
+    digest::digest(r("latin1.txt"))
+    digest::digest(r("latin1-crlf.txt"))
+    digest::digest(r("gb2312-utf8.txt"))
+    digest::digest(r("gb2312-utf8-crlf.txt"))
+    digest::digest(r("gb2312.txt"))
+    digest::digest(r("gb2312-crlf.txt"))
+  })
+})
 
 test_that("can write text to output file", {
   root <- tempfile("enc")
