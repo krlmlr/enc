@@ -1,4 +1,3 @@
-context("subset")
 
 test_that("range subsetting keeps class", {
   expect_identical(utf8(1:3)[2], utf8(2))

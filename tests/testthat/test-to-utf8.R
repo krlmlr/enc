@@ -1,4 +1,3 @@
-context("to-utf8")
 
 test_that("character vectors", {
   expect_is(to_utf8(letters), "utf8")

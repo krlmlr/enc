@@ -1,4 +1,3 @@
-context("to-latin1")
 
 test_that("character vector", {
   expect_identical(to_latin1(to_utf8(letters)), to_latin1(letters))

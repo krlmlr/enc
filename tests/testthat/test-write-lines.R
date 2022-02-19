@@ -1,4 +1,3 @@
-context("write-lines")
 
 test_that("can write text to output file", {
   root <- tempfile("enc")

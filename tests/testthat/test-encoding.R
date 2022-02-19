@@ -1,4 +1,3 @@
-context("encoding")
 
 test_that("encoding is always UTF-8", {
   expect_equal(Encoding(utf8("\u00e4")), "UTF-8")

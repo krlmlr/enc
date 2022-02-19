@@ -1,4 +1,3 @@
-context("update")
 
 test_that("Update keeps encoding", {
   x <- utf8(c("a", "\u00e4"))

@@ -1,4 +1,3 @@
-context("construct")
 
 test_that("can construct from character vector", {
   expect_identical(utf8(letters), as_utf8(letters))

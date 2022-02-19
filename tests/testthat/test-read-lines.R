@@ -1,4 +1,3 @@
-context("read-lines")
 
 test_that("can read latin1 files", {
   latin1 <- read_lines_enc("input/latin1.txt", file_encoding = "latin1")

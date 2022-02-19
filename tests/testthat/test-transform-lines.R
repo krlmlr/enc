@@ -1,4 +1,3 @@
-context("transform-lines")
 
 all_texts <- list(
   character(),
