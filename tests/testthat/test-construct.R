@@ -16,5 +16,5 @@ test_that("can construct empty utf8", {
 })
 
 test_that("names are UTF8", {
-  expect_is(names(utf8(setNames(nm = letters))), "utf8")
+  expect_s3_class(names(utf8(setNames(nm = letters))), "utf8")
 })
