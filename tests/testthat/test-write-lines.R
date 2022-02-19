@@ -1,6 +1,10 @@
 test_that("sanity check: input files", {
   r <- function(...) file.path("output", ...)
   expect_snapshot({
+    charToRaw("\n")
+    charToRaw("\r")
+    charToRaw("\r\n")
+
     digest::digest(r("ascii.txt"))
     digest::digest(r("ascii-crlf.txt"))
     digest::digest(r("latin1-utf8.txt"))

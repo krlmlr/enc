@@ -1,6 +1,18 @@
 # sanity check: input files
 
     Code
+      charToRaw("\n")
+    Output
+      [1] 0a
+    Code
+      charToRaw("\r")
+    Output
+      [1] 0d
+    Code
+      charToRaw("\r\n")
+    Output
+      [1] 0d 0a
+    Code
       digest::digest(r("ascii.txt"))
     Output
       [1] "ab378bf6d0d34e0e3ab9586bef0c38f4"
