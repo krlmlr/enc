@@ -4,5 +4,7 @@ test_that("output", {
 })
 
 test_that("print", {
-  expect_output_file(print(utf8(c("a", "bc"))), "output/abc.txt", update = TRUE)
+  expect_snapshot({
+    print(utf8(c("a", "bc")))
+  })
 })
