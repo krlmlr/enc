@@ -13,43 +13,43 @@
     Output
       [1] 0d 0a
     Code
-      digest::digest(r("ascii.txt"))
+      digest::digest(file = r("ascii.txt"))
     Output
-      [1] "ab378bf6d0d34e0e3ab9586bef0c38f4"
+      [1] "6736f98897a3effe84d1f2e4b9f0b973"
     Code
-      digest::digest(r("ascii-crlf.txt"))
+      digest::digest(file = r("ascii-crlf.txt"))
     Output
-      [1] "e54f5379d79efdc59bfa9e8df114d444"
+      [1] "b2380d51ba72407934a96ed17fb6b16a"
     Code
-      digest::digest(r("latin1-utf8.txt"))
+      digest::digest(file = r("latin1-utf8.txt"))
     Output
-      [1] "61810c18a91010e7111a65dcd037c095"
+      [1] "b1308e45d7501076cd34ebb17d843a9b"
     Code
-      digest::digest(r("latin1-utf8-crlf.txt"))
+      digest::digest(file = r("latin1-utf8-crlf.txt"))
     Output
-      [1] "4f7fe14980b2ef231d51590d4c392d56"
+      [1] "5dee80ff20fe15eb0def0b4fefdaa5e2"
     Code
-      digest::digest(r("latin1.txt"))
+      digest::digest(file = r("latin1.txt"))
     Output
-      [1] "f0bc3d8e43de6507ac133e9256e1a424"
+      [1] "81f5d90beb6eb7f639bdbf700aaa0eff"
     Code
-      digest::digest(r("latin1-crlf.txt"))
+      digest::digest(file = r("latin1-crlf.txt"))
     Output
-      [1] "28ccbc65bbaa374dbe21df0708fdbbd8"
+      [1] "61b55e58f9281cdefc4c6ca01691838d"
     Code
-      digest::digest(r("gb2312-utf8.txt"))
+      digest::digest(file = r("gb2312-utf8.txt"))
     Output
-      [1] "cb882a817ce794f54a7aacbf766d76fd"
+      [1] "9d8dbd98625cd6e5bb78a54d8331ec16"
     Code
-      digest::digest(r("gb2312-utf8-crlf.txt"))
+      digest::digest(file = r("gb2312-utf8-crlf.txt"))
     Output
-      [1] "9ea88e29c7aa01e7fab9a831db02a972"
+      [1] "86c7554822fe2d6a00f612c3b846ae5e"
     Code
-      digest::digest(r("gb2312.txt"))
+      digest::digest(file = r("gb2312.txt"))
     Output
-      [1] "fd98d8fb6eb339a4963465c1847c1330"
+      [1] "3096d490573786a76f1c2791e196829c"
     Code
-      digest::digest(r("gb2312-crlf.txt"))
+      digest::digest(file = r("gb2312-crlf.txt"))
     Output
-      [1] "48d18932926b0d46d4636cb1ed2252aa"
+      [1] "2dcd98a4e67a362c532b4a863a7f3ead"
 
