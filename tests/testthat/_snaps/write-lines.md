@@ -40,19 +40,19 @@
     Output
       [1] fc 0d 0a
     Code
-      test_write_lines_enc("中")
+      test_write_lines_enc("<U+4E2D>")
     Output
-      [1] e4 b8 ad 0a
+      [1] 3c 55 2b 34 45 32 44 3e 0a
     Code
-      test_write_lines_enc("中", sep = "\r\n")
+      test_write_lines_enc("<U+4E2D>", sep = "\r\n")
     Output
-      [1] e4 b8 ad 0d 0a
+       [1] 3c 55 2b 34 45 32 44 3e 0d 0a
     Code
-      test_write_lines_enc("中", file_encoding = "GB2312")
+      test_write_lines_enc("<U+4E2D>", file_encoding = "GB2312")
     Output
-      [1] d6 d0 0a
+      [1] 3c 55 2b 34 45 32 44 3e 0a
     Code
-      test_write_lines_enc("中", file_encoding = "GB2312", sep = "\r\n")
+      test_write_lines_enc("<U+4E2D>", file_encoding = "GB2312", sep = "\r\n")
     Output
-      [1] d6 d0 0d 0a
+       [1] 3c 55 2b 34 45 32 44 3e 0d 0a
 
