@@ -1,41 +1,29 @@
-test_that("sanity check: input files", {
-  r <- function(...) file.path("output", ...)
+test_that("sanity check", {
   expect_snapshot({
     charToRaw("\n")
     charToRaw("\r")
     charToRaw("\r\n")
-
-    digest::digest(file = r("ascii.txt"))
-    digest::digest(file = r("ascii-crlf.txt"))
-    digest::digest(file = r("latin1-utf8.txt"))
-    digest::digest(file = r("latin1-utf8-crlf.txt"))
-    digest::digest(file = r("latin1.txt"))
-    digest::digest(file = r("latin1-crlf.txt"))
-    digest::digest(file = r("gb2312-utf8.txt"))
-    digest::digest(file = r("gb2312-utf8-crlf.txt"))
-    digest::digest(file = r("gb2312.txt"))
-    digest::digest(file = r("gb2312-crlf.txt"))
   })
 })
 
 test_that("can write text to output file", {
-  root <- tempfile("enc")
-  dir.create(root)
-  f <- function(...) file.path(root, ...)
-  r <- function(...) file.path("output", ...)
-  write_lines_enc("ascii", f("ascii.txt"))
-  write_lines_enc("ascii", f("ascii-crlf.txt"), sep = "\r\n")
-  write_lines_enc("\u00fc", f("latin1-utf8.txt"))
-  write_lines_enc("\u00fc", f("latin1-utf8-crlf.txt"), sep = "\r\n")
-  write_lines_enc("\u00fc", f("latin1.txt"), file_encoding = "latin1")
-  write_lines_enc("\u00fc", f("latin1-crlf.txt"), file_encoding = "latin1", sep = "\r\n")
-  write_lines_enc("\u4e2d", f("gb2312-utf8.txt"))
-  write_lines_enc("\u4e2d", f("gb2312-utf8-crlf.txt"), sep = "\r\n")
-  write_lines_enc("\u4e2d", f("gb2312.txt"), file_encoding = "GB2312")
-  write_lines_enc("\u4e2d", f("gb2312-crlf.txt"), file_encoding = "GB2312", sep = "\r\n")
+  path <- tempfile("enc")
 
-  for (file in dir(f())) {
-    eval(bquote(
-      expect_equal(digest::digest(file = f(file)), digest::digest(file = .(r(file))))))
+  test_write_lines_enc <- function(...) {
+    write_lines_enc(path = path, ...)
+    readBin(path, raw(1), 100)
   }
+
+  expect_snapshot({
+    test_write_lines_enc("ascii")
+    test_write_lines_enc("ascii", sep = "\r\n")
+    test_write_lines_enc("\u00fc")
+    test_write_lines_enc("\u00fc", sep = "\r\n")
+    test_write_lines_enc("\u00fc", file_encoding = "latin1")
+    test_write_lines_enc("\u00fc", file_encoding = "latin1", sep = "\r\n")
+    test_write_lines_enc("\u4e2d")
+    test_write_lines_enc("\u4e2d", sep = "\r\n")
+    test_write_lines_enc("\u4e2d", file_encoding = "GB2312")
+    test_write_lines_enc("\u4e2d", file_encoding = "GB2312", sep = "\r\n")
+  })
 })

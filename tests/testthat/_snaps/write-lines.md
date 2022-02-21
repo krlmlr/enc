@@ -1,4 +1,4 @@
-# sanity check: input files
+# sanity check
 
     Code
       charToRaw("\n")
@@ -12,44 +12,47 @@
       charToRaw("\r\n")
     Output
       [1] 0d 0a
+
+# can write text to output file
+
     Code
-      digest::digest(file = r("ascii.txt"))
+      test_write_lines_enc("ascii")
     Output
-      [1] "6736f98897a3effe84d1f2e4b9f0b973"
+      [1] 61 73 63 69 69 0a
     Code
-      digest::digest(file = r("ascii-crlf.txt"))
+      test_write_lines_enc("ascii", sep = "\r\n")
     Output
-      [1] "b2380d51ba72407934a96ed17fb6b16a"
+      [1] 61 73 63 69 69 0d 0a
     Code
-      digest::digest(file = r("latin1-utf8.txt"))
+      test_write_lines_enc("ü")
     Output
-      [1] "b1308e45d7501076cd34ebb17d843a9b"
+      [1] c3 bc 0a
     Code
-      digest::digest(file = r("latin1-utf8-crlf.txt"))
+      test_write_lines_enc("ü", sep = "\r\n")
     Output
-      [1] "5dee80ff20fe15eb0def0b4fefdaa5e2"
+      [1] c3 bc 0d 0a
     Code
-      digest::digest(file = r("latin1.txt"))
+      test_write_lines_enc("ü", file_encoding = "latin1")
     Output
-      [1] "81f5d90beb6eb7f639bdbf700aaa0eff"
+      [1] fc 0a
     Code
-      digest::digest(file = r("latin1-crlf.txt"))
+      test_write_lines_enc("ü", file_encoding = "latin1", sep = "\r\n")
     Output
-      [1] "61b55e58f9281cdefc4c6ca01691838d"
+      [1] fc 0d 0a
     Code
-      digest::digest(file = r("gb2312-utf8.txt"))
+      test_write_lines_enc("中")
     Output
-      [1] "9d8dbd98625cd6e5bb78a54d8331ec16"
+      [1] e4 b8 ad 0a
     Code
-      digest::digest(file = r("gb2312-utf8-crlf.txt"))
+      test_write_lines_enc("中", sep = "\r\n")
     Output
-      [1] "86c7554822fe2d6a00f612c3b846ae5e"
+      [1] e4 b8 ad 0d 0a
     Code
-      digest::digest(file = r("gb2312.txt"))
+      test_write_lines_enc("中", file_encoding = "GB2312")
     Output
-      [1] "3096d490573786a76f1c2791e196829c"
+      [1] d6 d0 0a
     Code
-      digest::digest(file = r("gb2312-crlf.txt"))
+      test_write_lines_enc("中", file_encoding = "GB2312", sep = "\r\n")
     Output
-      [1] "2dcd98a4e67a362c532b4a863a7f3ead"
+      [1] d6 d0 0d 0a
 
