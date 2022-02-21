@@ -1,4 +1,3 @@
-context("to-native")
 
 test_that("character vector", {
   expect_identical(to_native(to_utf8(letters)), to_native(letters))

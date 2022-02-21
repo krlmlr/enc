@@ -1,4 +1,3 @@
-context("construct")
 
 test_that("can construct from character vector", {
   expect_identical(utf8(letters), as_utf8(letters))
@@ -17,5 +16,5 @@ test_that("can construct empty utf8", {
 })
 
 test_that("names are UTF8", {
-  expect_is(names(utf8(setNames(nm = letters))), "utf8")
+  expect_s3_class(names(utf8(setNames(nm = letters))), "utf8")
 })

@@ -1,4 +1,3 @@
-context("ascii")
 
 test_that("ASCII encoding detected works", {
   # Unclear why this fails on Linux in a latin-1 locale

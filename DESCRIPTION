@@ -17,7 +17,7 @@ Suggests:
     pillar,
     readr,
     rlang,
-    testthat,
+    testthat (>= 3.0.0),
     withr
 License: GPL-3
 Encoding: UTF-8
@@ -26,3 +26,4 @@ BugReports: https://github.com/krlmlr/enc/issues
 URL: https://github.com/krlmlr/enc
 RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3

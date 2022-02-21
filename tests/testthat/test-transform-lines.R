@@ -1,4 +1,3 @@
-context("transform-lines")
 
 all_texts <- list(
   character(),
@@ -132,8 +131,9 @@ test_that("remove transformation works for GB2312", {
 
 test_that("transform missing file", {
   path <- tempfile("enc")
-  expect_warning(
+  suppressWarnings(expect_warning(
     expect_true(transform_lines_enc(path, add_one)),
-    "cannot open file")
+    "cannot open file"
+  ))
   expect_warning(transform_lines_enc(path, identity), NA)
 })

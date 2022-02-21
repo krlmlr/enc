@@ -1,4 +1,3 @@
-context("coercion")
 
 test_that("coercion in", {
   expect_identical(as_utf8("a"), utf8("a"))

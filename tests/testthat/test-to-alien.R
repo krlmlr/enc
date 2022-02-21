@@ -1,4 +1,3 @@
-context("to-alien")
 
 test_that("character vector", {
   expect_identical(to_alien(to_utf8(letters)), to_alien(letters))

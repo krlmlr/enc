@@ -1,4 +1,3 @@
-context("ellipsis")
 
 test_that("ellipsis", {
   expect_equal(ellipsis(letters[1:3]), "a, b, c")

@@ -1,4 +1,3 @@
-context("update")
 
 test_that("Update keeps encoding", {
   x <- utf8(c("a", "\u00e4"))
@@ -21,7 +20,7 @@ test_that("Update keeps encoding", {
 })
 
 test_that("Concatenation keeps encoding", {
-  expect_is(c(utf8("\u00e4"), "a"), "utf8")
+  expect_s3_class(c(utf8("\u00e4"), "a"), "utf8")
 })
 
 test_that("Updating names keeps encoding", {

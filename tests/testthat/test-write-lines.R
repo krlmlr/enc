@@ -1,23 +1,33 @@
-context("write-lines")
+test_that("sanity check", {
+  expect_snapshot({
+    charToRaw("\n")
+    charToRaw("\r")
+    charToRaw("\r\n")
+  })
+})
 
 test_that("can write text to output file", {
-  root <- tempfile("enc")
-  dir.create(root)
-  f <- function(...) file.path(root, ...)
-  r <- function(...) file.path("output", ...)
-  write_lines_enc("ascii", f("ascii.txt"))
-  write_lines_enc("ascii", f("ascii-crlf.txt"), sep = "\r\n")
-  write_lines_enc("\u00fc", f("latin1-utf8.txt"))
-  write_lines_enc("\u00fc", f("latin1-utf8-crlf.txt"), sep = "\r\n")
-  write_lines_enc("\u00fc", f("latin1.txt"), file_encoding = "latin1")
-  write_lines_enc("\u00fc", f("latin1-crlf.txt"), file_encoding = "latin1", sep = "\r\n")
-  write_lines_enc("\u4e2d", f("gb2312-utf8.txt"))
-  write_lines_enc("\u4e2d", f("gb2312-utf8-crlf.txt"), sep = "\r\n")
-  write_lines_enc("\u4e2d", f("gb2312.txt"), file_encoding = "GB2312")
-  write_lines_enc("\u4e2d", f("gb2312-crlf.txt"), file_encoding = "GB2312", sep = "\r\n")
+  path <- tempfile("enc")
 
-  for (file in dir(f())) {
-    eval(bquote(
-      expect_equal(digest::digest(file = f(file)), digest::digest(file = .(r(file))))))
+  test_write_lines_enc <- function(...) {
+    write_lines_enc(path = path, ...)
+    readBin(path, raw(1), 100)
   }
+
+  ascii <- "ascii"
+  u_umlaut <- "\u00fc"
+  middle <- "\u4e2d"
+
+  expect_snapshot({
+    test_write_lines_enc(ascii)
+    test_write_lines_enc(ascii, sep = "\r\n")
+    test_write_lines_enc(u_umlaut)
+    test_write_lines_enc(u_umlaut, sep = "\r\n")
+    test_write_lines_enc(u_umlaut, file_encoding = "latin1")
+    test_write_lines_enc(u_umlaut, file_encoding = "latin1", sep = "\r\n")
+    test_write_lines_enc(middle)
+    test_write_lines_enc(middle, sep = "\r\n")
+    test_write_lines_enc(middle, file_encoding = "GB2312")
+    test_write_lines_enc(middle, file_encoding = "GB2312", sep = "\r\n")
+  })
 })
