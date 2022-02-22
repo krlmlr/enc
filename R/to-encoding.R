@@ -44,7 +44,9 @@ to_native <- function(x, ...) to_encoding(x, ..., converter = iconv_to_native)
 
 iconv_to_latin1 <- function(x) {
   unclass(vapply(x, function(xx) iconv(xx, from = encoding(xx), to = "latin1"),
-                 character(1L), USE.NAMES = FALSE))
+    character(1L),
+    USE.NAMES = FALSE
+  ))
 }
 
 #' @rdname to_encoding

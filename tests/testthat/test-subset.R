@@ -7,10 +7,10 @@ test_that("range subsetting keeps class", {
 test_that("range updating keeps class", {
   x <- utf8(1:3)
   x[2] <- 4
-  expect_identical(x, utf8(c(1,4,3)))
+  expect_identical(x, utf8(c(1, 4, 3)))
   x <- utf8(1:4)
   x[2:3] <- 5:6
-  expect_identical(x, utf8(c(1,5,6,4)))
+  expect_identical(x, utf8(c(1, 5, 6, 4)))
 })
 
 test_that("index subsetting keeps class", {
@@ -20,5 +20,5 @@ test_that("index subsetting keeps class", {
 test_that("index updating keeps class", {
   x <- utf8(1:3)
   x[[2]] <- 4
-  expect_identical(x, utf8(c(1,4,3)))
+  expect_identical(x, utf8(c(1, 4, 3)))
 })

@@ -16,7 +16,9 @@ read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE,
   on.exit(close(con), add = TRUE)
 
   lines <- readLines(
-    con, warn = FALSE, n = n, ok = ok, skipNul = skipNul, encoding = "UTF-8")
+    con,
+    warn = FALSE, n = n, ok = ok, skipNul = skipNul, encoding = "UTF-8"
+  )
   Encoding(lines) <- "UTF-8"
   as_utf8(lines)
 }
@@ -29,7 +31,9 @@ try_read_lines_enc <- function(path, file_encoding = "UTF-8", n = -1L, ok = TRUE
                                skipNul = FALSE) {
   tryCatch(
     read_lines_enc(
-      path, file_encoding = file_encoding, ok = ok, skipNul = skipNul),
+      path,
+      file_encoding = file_encoding, ok = ok, skipNul = skipNul
+    ),
     error = function(e) {
       warning("Cannot read ", path, ": ", conditionMessage(e))
       character()
@@ -91,7 +95,8 @@ transform_lines_enc <- function(path, fun, file_encoding = "UTF-8", ok = TRUE,
   ret <- vapply(
     stats::setNames(nm = path), transform_lines_enc_one, logical(1L),
     fun = fun, file_encoding = file_encoding, ok = ok, skipNul = skipNul,
-    write_back = write_back)
+    write_back = write_back
+  )
 
   if (verbose) {
     if (!any(ret, na.rm = TRUE)) {
@@ -121,7 +126,6 @@ transform_lines_enc_one <- function(path, fun, file_encoding = "UTF-8", ok = TRU
         FALSE
       }
     },
-
     error = function(e) {
       warning("When processing ", path, ": ", conditionMessage(e), call. = FALSE)
       NA
