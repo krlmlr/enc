@@ -24,6 +24,6 @@ Encoding: UTF-8
 LazyData: true
 BugReports: https://github.com/krlmlr/enc/issues
 URL: https://github.com/krlmlr/enc
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
