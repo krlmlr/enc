@@ -1,5 +1,28 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# enc 0.2.2.9001
+
+- Harmonize yaml formatting.
+
+- Revert changes to matrix section.
+
+- Merge pull request #28 from krlmlr/f-autostyle.
+
+
+
+- Merge pull request #29 from krlmlr/b-test.
+
+- Update to testthat 3e (#29).
+
+- Reduce parallelism.
+
+- Also check dev on cran-* branches.
+
+- Update hash key for dev.
+
+- Remove R 3.3.
+
+
 # enc 0.2.2.9000
 
 - Same as previous version.
