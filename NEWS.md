@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# enc 0.2.2.9002
+
+- Internal changes only.
+
+
 # enc 0.2.2.9001
 
 - Harmonize yaml formatting.
