@@ -2,6 +2,7 @@
 % Please edit documentation in R/enc-package.R
 \docType{package}
 \name{enc-package}
+\alias{enc-package}
 \title{enc: Portable Tools for 'UTF-8' Character Data}
 \description{
 Implements an S3 class for storing 'UTF-8' strings, based on regular character vectors. Also contains routines to portably read and write 'UTF-8' encoded text files, to convert all strings in an object to 'UTF-8', and to create character vectors with various encodings.
