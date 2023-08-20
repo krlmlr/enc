@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# enc 0.2.2.9005
+
+## Chore
+
+- Remove LazyData field.
+
+- Update maintainer e-mail.
+
+## doc
+
+- Add alias to package documentation.
+
+
 # enc 0.2.2.9004
 
 - Internal changes only.
