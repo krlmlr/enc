@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# enc 0.2.2.9006
+
+- Internal changes only.
+
+
 # enc 0.2.2.9005
 
 ## Chore
