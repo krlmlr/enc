@@ -2,6 +2,7 @@
 % Please edit documentation in R/enc-package.R
 \docType{package}
 \name{enc-package}
+\alias{enc}
 \alias{enc-package}
 \title{enc: Portable Tools for 'UTF-8' Character Data}
 \description{
